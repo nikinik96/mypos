@@ -29,11 +29,12 @@
 			<a href="#"><b>My</b>POS</a>
 		</div>
 		<div class="login-box-body">
+			<?= $this->session->flashdata('message'); ?>
 			<p class="login-box-msg">Sign in to start your session</p>
 
 			<form action="#" method="post">
 				<div class="form-group has-feedback">
-					<input type="text" name="email" class="form-control" placeholder="Email">
+					<input type="text" name="email" class="form-control" placeholder="Email" autocomplete="off" autofocus>
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
