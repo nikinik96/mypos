@@ -31,7 +31,6 @@
 		<div class="login-box-body">
 			<?= $this->session->flashdata('message'); ?>
 			<p class="login-box-msg">Sign in to start your session</p>
-
 			<form action="#" method="post">
 				<div class="form-group has-feedback">
 					<input type="text" name="email" class="form-control" placeholder="Email" autocomplete="off" autofocus>

@@ -12,7 +12,12 @@ class Auth extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('v_login');
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('v_login');
+		} else {
+			$this->load->view('formsuccess');
+		}
 	}
 
 	public function register()
