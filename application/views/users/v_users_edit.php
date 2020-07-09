@@ -30,7 +30,7 @@
         </div>
         <div class="box-body">
             <div class="row">
-                <div class="col md-6 col-md-offset-3">
+                <div class="col-md-6 col-md-offset-3">
                     <form action="">
                         <div class="form-group">
                             <label for="">Name <i class="text-danger">*</i></label>
