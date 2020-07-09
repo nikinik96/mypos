@@ -12,6 +12,8 @@ class Auth extends CI_Controller
 
 	public function index()
 	{
+		check_already_login();
+
 		$email		= $this->input->post('email');
 		$pswd		= $this->input->post('password');
 
