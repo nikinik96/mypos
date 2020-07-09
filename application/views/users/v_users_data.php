@@ -18,7 +18,7 @@
             <h4>Data Users</h4>
         </div>
         <div class="box-body table-responsive">
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped" id="mytable">
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
@@ -32,9 +32,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
-
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
