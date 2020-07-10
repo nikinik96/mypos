@@ -38,7 +38,7 @@
 					<?= form_error('email', '<div class="text-danger">', '</div>'); ?>
 				</div>
 				<div class="form-group has-feedback <?= form_error('password') != NULL ? 'has-error' : null ?>">
-					<input type="password" name="password" class="form-control" placeholder="Password">
+					<input type="password" name="password" class="form-control" placeholder="Password Users">
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 					<?= form_error('password', '<div class="text-danger">', '</div>'); ?>
 				</div>
