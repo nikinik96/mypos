@@ -18,8 +18,12 @@ class Users extends CI_Controller
 
     public function edit($id)
     {
-        $data['row']    = $this->users_m->get($id)->row();
+        $data  = $this->users_m->get($id)->row();
 
-        $this->template->load('v_template', 'users/v_users_edit', $data);
+        $array = [
+            'row'   => $data
+        ];
+
+        $this->template->load('v_template', 'users/v_users_edit', $array);
     }
 }

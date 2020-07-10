@@ -41,10 +41,10 @@
                             <td class="text-center"><?= $data->is_active == 1 ? 'Active' : 'Tidak Aktif' ?></td>
                             <td class="text-center"><?= $data->level == 1 ? 'Admin' : 'Member' ?></td>
                             <td class="text-center">
-                                <a href="<?= site_url('Users/edit/' . $data->user_id) ?>" class="btn btn-success">
+                                <a href="<?= site_url('Users/edit/' . $data->user_id) ?>" class="btn btn-success btn-sm">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="#" class="btn btn-danger" onclick="return confirm('Data <?= $data->name ?> akan dihapus secara permanen, apakah anda yakin  ?')">
+                                <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Data <?= $data->name ?> akan dihapus secara permanen, apakah anda yakin  ?')">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>
