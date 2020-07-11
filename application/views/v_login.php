@@ -33,12 +33,12 @@
 			<p class="login-box-msg">Sign in to start your session</p>
 			<form action="" method="POST">
 				<div class="form-group has-feedback <?= form_error('email') != NULL ? 'has-error' : null ?>">
-					<input type="text" name="email" class="form-control" placeholder="Email Users" autocomplete="off" autofocus>
+					<input type="text" name="email" class="form-control" placeholder="Email" autocomplete="off" autofocus>
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 					<?= form_error('email', '<div class="text-danger">', '</div>'); ?>
 				</div>
 				<div class="form-group has-feedback <?= form_error('password') != NULL ? 'has-error' : null ?>">
-					<input type="password" name="password" class="form-control" placeholder="Password Users">
+					<input type="password" name="password" class="form-control" placeholder="Password">
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 					<?= form_error('password', '<div class="text-danger">', '</div>'); ?>
 				</div>
