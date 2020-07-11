@@ -13,4 +13,21 @@ class users_m extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
+    public function edit($post)
+    {
+        $params['name']         = $post['name'];
+        $params['email']        = $post['email'];
+        $params['alamat']       = $post['alamat'];
+
+        if ($post['password'] != NULL) {
+            $params['password']     = password_hash($post['password'], PASSWORD_DEFAULT);
+        }
+
+        $params['is_active']    = $post['is_active'];
+        $params['level']        = $post['level'];
+
+        $this->db->where('user_id', $post['user_id']);
+        $this->db->update('user', $params);
+    }
 }

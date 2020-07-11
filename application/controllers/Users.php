@@ -7,6 +7,7 @@ class Users extends CI_Controller
     {
         parent::__construct();
         check_not_login();
+        $this->load->library('form_validation');
         $this->load->model('users_m');
     }
 
@@ -18,12 +19,33 @@ class Users extends CI_Controller
 
     public function edit($id)
     {
-        $data  = $this->users_m->get($id)->row();
+        $this->form_validation->set_rules('name', 'Username', 'trim|required');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+        $this->form_validation->set_rules('password', 'Password', 'trim|min_length[4]|matches[retype_password]');
+        $this->form_validation->set_rules('retype_password', 'Password Confirmation', 'trim|matches[password]');
+        $this->form_validation->set_rules('is_active', 'Is Active', 'trim|required');
+        $this->form_validation->set_rules('level', 'Level', 'trim|required');
 
-        $array = [
-            'row'   => $data
-        ];
+        if ($this->form_validation->run() == FALSE) {
 
-        $this->template->load('v_template', 'users/v_users_edit', $array);
+            $data  = $this->users_m->get($id)->row();
+
+            $array = [
+                'row'   => $data
+            ];
+
+            $this->template->load('v_template', 'users/v_users_edit', $array);
+        } else {
+
+            $post = $this->input->post(NULL, TRUE);
+
+            $this->users_m->edit($post);
+
+            if ($this->db->affected_rows() > 0) {
+                $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil diubah </div>');
+                redirect('Users');
+            }
+        }
     }
 }
