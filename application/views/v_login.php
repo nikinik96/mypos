@@ -44,7 +44,7 @@
 				</div>
 				<div class="row">
 					<div class="col-xs-12">
-						<button type="submit" class="btn btn-success btn-block btn-flat" style="width: 100%;">Sign In</button>
+						<button type="submit" class="btn btn-primary btn-block btn-flat" style="width: 100%;">Sign In</button>
 					</div>
 				</div>
 			</form>
