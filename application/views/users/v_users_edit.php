@@ -77,6 +77,7 @@
                             <?= form_error('level', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group">
+                            <button type="reset" class="btn btn-danger"><i class="fa fa-rotate-left"></i></button>
                             <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i></button>
                         </div>
                     </form>
