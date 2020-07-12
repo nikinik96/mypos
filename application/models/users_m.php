@@ -30,4 +30,10 @@ class users_m extends CI_Model
         $this->db->where('user_id', $post['user_id']);
         $this->db->update('user', $params);
     }
+
+    public function delet($post)
+    {
+        $this->db->where('user_id', $post);
+        $this->db->delete('user');
+    }
 }
