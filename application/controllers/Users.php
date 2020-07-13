@@ -13,11 +13,34 @@ class Users extends CI_Controller
 
     public function index()
     {
-        $data['row']    = $this->users_m->get()->result();
-        $this->template->load('v_template', 'users/v_users_data', $data);
+        $this->template->load('v_template', 'users/v_users_data');
     }
 
-    public function edit($id)
+    public function v_users_data_member()
+    {
+        $this->template->load('v_template', 'users/v_users_data_member');
+    }
+
+    public function v_users_admin()
+    {
+        check_admin_users();
+        $data['row']    = $this->users_m->get()->result();
+        $this->template->load('v_template', 'users/v_users_admin', $data);
+    }
+
+    public function edit()
+    {
+        $post = $this->input->post(NULL, TRUE);
+
+        $this->users_m->edit($post);
+
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil diubah </div>');
+            redirect('Users');
+        }
+    }
+
+    public function edit_admin($id)
     {
         $this->form_validation->set_rules('name', 'Username', 'trim|required');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');

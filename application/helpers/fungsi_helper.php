@@ -20,6 +20,14 @@ function check_not_login()
     }
 }
 
+function check_admin_users()
+{
+    $ci = &get_instance();
+    if ($ci->session->userdata('level') != 1) {
+        redirect('Dashboard');
+    }
+}
+
 function check_admin()
 {
     $ci = &get_instance();

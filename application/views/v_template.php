@@ -111,10 +111,10 @@
                             <i class="fa fa-users"></i> <span>Customers</span>
                         </a>
                     </li>
-                    <li class="header">LABELS</li>
+                    <li class="header">Users</li>
                     <li <?= $this->uri->segment(1) == "Users" ? 'class="active"' : null  ?>>
                         <a href="<?= site_url('Users') ?>">
-                            <i class="fa fa-user-o text-red"></i> <span>User</span>
+                            <i class="fa fa-user-o text-red"></i> <span>My Profile</span>
                         </a>
                     </li>
                 </ul>
