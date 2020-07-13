@@ -57,9 +57,6 @@
                     <?php } ?>
                 </tbody>
             </table>
-            <?php if ($this->session->userdata('level') == 2) { ?>
-                <i class="text-danger">*</i> The delete button is not activated
-            <?php }  ?>
         </div>
     </div>
 </section>
