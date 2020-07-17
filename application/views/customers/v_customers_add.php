@@ -29,30 +29,34 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form action="">
+                    <form action="" method="POST">
                         <div class="form-group">
                             <label for="">Customers ID <i class="text-danger">*</i></label>
-                            <input type="text" name="customers_id" id="customers_id" class="form-control" placeholder="Customers ID" readonly="true">
+                            <input type="text" name="customers_id" id="customers_id" class="form-control" placeholder="Customers ID" value="CUST_0001" readonly="true">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group <?= form_error('name_customers') == TRUE ? 'has-error' : null ?>">
                             <label for="name_customers">Nama Customers <i class="text-danger">*</i></label>
                             <input type="text" name="name_customers" id="name_customers" class="form-control" placeholder="Nama Customers">
+                            <?= form_error('name_customers', '<div class="text-danger">', '</div>'); ?>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group <?= form_error('gander_customers') == TRUE ? 'has-error' : null ?>">
                             <label for="gander_customers">Jenis Kelamin <i class="text-danger">*</i></label>
                             <select name="gander_customers" id="gander_customers" class="form-control">
                                 <option value="">-- Pilih --</option>
-                                <option value="">Laki-Laki</option>
-                                <option value="">Perempuan</option>
+                                <option value="1">Laki-Laki</option>
+                                <option value="2">Perempuan</option>
                             </select>
+                            <?= form_error('gander_customers', '<div class="text-danger">', '</div>'); ?>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group <?= form_error('phone_customers') == TRUE ? 'has-error' : null ?>">
                             <label for="phone_customers">Tlp <i class="text-danger">*</i></label>
                             <input type="number" name="phone_customers" id="phone_customers" class="form-control" placeholder="No Tlp Customers">
+                            <?= form_error('phone_customers', '<div class="text-danger">', '</div>'); ?>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group <?= form_error('address_customers') == TRUE ? 'has-error' : null ?>">
                             <label for="address_customers">Alamat <i class="text-danger">*</i></label>
                             <textarea name="address_customers" id="address_customers" rows="4" class="form-control" placeholder="Alamat Customers"></textarea>
+                            <?= form_error('address_customers', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group">
                             <button type="reset" class="btn btn-danger"><i class="fa fa-rotate-left"></i></button>
