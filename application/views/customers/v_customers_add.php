@@ -33,10 +33,11 @@
                         <div class="form-group">
                             <label for="">Customers ID <i class="text-danger">*</i></label>
                             <input type="text" name="customers_id" id="customers_id" class="form-control" placeholder="Customers ID" value="CUST_0001" readonly="true">
+                            <?= form_error('customers_id', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group <?= form_error('name_customers') == TRUE ? 'has-error' : null ?>">
                             <label for="name_customers">Nama Customers <i class="text-danger">*</i></label>
-                            <input type="text" name="name_customers" id="name_customers" class="form-control" placeholder="Nama Customers">
+                            <input type="text" name="name_customers" id="name_customers" class="form-control" placeholder="Nama Customers" autocomplete="off">
                             <?= form_error('name_customers', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group <?= form_error('gander_customers') == TRUE ? 'has-error' : null ?>">
@@ -50,7 +51,7 @@
                         </div>
                         <div class="form-group <?= form_error('phone_customers') == TRUE ? 'has-error' : null ?>">
                             <label for="phone_customers">Tlp <i class="text-danger">*</i></label>
-                            <input type="number" name="phone_customers" id="phone_customers" class="form-control" placeholder="No Tlp Customers">
+                            <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==13) return false;" name="phone_customers" id="phone_customers" class="form-control" placeholder="No Tlp Customers" autocomplete="off">
                             <?= form_error('phone_customers', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group <?= form_error('address_customers') == TRUE ? 'has-error' : null ?>">

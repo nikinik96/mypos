@@ -3,6 +3,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class customers_m extends CI_Model
 {
+    public function get($id = NULL)
+    {
+        $this->db->select('*');
+        $this->db->from('customers');
+        if ($id != NULL) {
+            $this->db->where('customers_id');
+        }
+        $post = $this->db->get();
+        return $post;
+    }
+
     public function add($post)
     {
         $params['customers_id']         = $post['customers_id'];
@@ -12,5 +23,11 @@ class customers_m extends CI_Model
         $params['address_customers']    = $post['address_customers'];
 
         $this->db->insert('customers', $params);
+    }
+
+    public function del($post)
+    {
+        $this->db->where('customers_id', $post);
+        $this->db->delete('customers');
     }
 }

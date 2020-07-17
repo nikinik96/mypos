@@ -37,6 +37,27 @@
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php $no = 1; ?>
+                    <?php foreach ($row as $key => $data) { ?>
+                        <tr>
+                            <td class="text-center"><?= $no++; ?></td>
+                            <td class="text-center"><?= $data->customers_id ?></td>
+                            <td><?= $data->name_customers ?></td>
+                            <td class="text-center"><?= $data->phone_customers ?></td>
+                            <td class="text-center"><?= $data->gander_customers ?></td>
+                            <td><?= $data->address_customers ?></td>
+                            <td class="text-center">
+                                <a href="" class="btn btn-success">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="<?= site_url('Customers/del/' . $data->customers_id) ?>" class="btn btn-danger" onclick="return confirm('Data <?= $data->name_customers ?> akan dihapus secara permanen, apakah anda yakin  ?');">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
         </div>
     </div>
