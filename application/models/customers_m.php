@@ -14,6 +14,13 @@ class customers_m extends CI_Model
         return $post;
     }
 
+    public function ai_code()
+    {
+        $query = $this->db->query("SELECT MAX(customers_id) as customers_id from customers");
+        $hasil = $query->row();
+        return $hasil->customers_id;
+    }
+
     public function add($post)
     {
         $params['customers_id']         = $post['customers_id'];

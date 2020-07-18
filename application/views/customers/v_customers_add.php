@@ -15,7 +15,7 @@
     </ol>
 </section>
 <section class="content">
-    <div class="box">
+    <div class="box box-primary">
         <div class="box-header">
             <h4>
                 Add Customers
@@ -32,12 +32,12 @@
                     <form action="" method="POST">
                         <div class="form-group">
                             <label for="">Customers ID <i class="text-danger">*</i></label>
-                            <input type="text" name="customers_id" id="customers_id" class="form-control" placeholder="Customers ID" value="CUST_0001" readonly="true">
+                            <input type="text" name="customers_id" id="customers_id" class="form-control" placeholder="Customers ID" value="CUST_<?= sprintf("%04s", $row) ?>" readonly="true">
                             <?= form_error('customers_id', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group <?= form_error('name_customers') == TRUE ? 'has-error' : null ?>">
                             <label for="name_customers">Nama Customers <i class="text-danger">*</i></label>
-                            <input type="text" name="name_customers" id="name_customers" class="form-control" placeholder="Nama Customers" autocomplete="off">
+                            <input type="text" name="name_customers" id="name_customers" class="form-control" placeholder="Nama Customers" autocomplete="off" autofocus="true">
                             <?= form_error('name_customers', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group <?= form_error('gander_customers') == TRUE ? 'has-error' : null ?>">

@@ -48,7 +48,7 @@
                             <td class="text-center"><?= $data->gander_customers ?></td>
                             <td><?= $data->address_customers ?></td>
                             <td class="text-center">
-                                <a href="" class="btn btn-success">
+                                <a href="<?= site_url('Customers/edit/' . $data->customers_id) ?>" class="btn btn-success">
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 <a href="<?= site_url('Customers/del/' . $data->customers_id) ?>" class="btn btn-danger" onclick="return confirm('Data <?= $data->name_customers ?> akan dihapus secara permanen, apakah anda yakin  ?');">

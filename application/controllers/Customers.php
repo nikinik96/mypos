@@ -6,6 +6,7 @@ class Customers extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        check_not_login();
         $this->load->library('form_validation');
         $this->load->model('customers_m');
     }
@@ -18,6 +19,15 @@ class Customers extends CI_Controller
 
     public function add()
     {
+
+        $data = $this->customers_m->ai_code();
+
+        $nourut = substr($data, 5, 4);
+        $kd_ai  = $nourut + 1;
+        $result = array(
+            'row' => $kd_ai
+        );
+
         $this->form_validation->set_rules('name_customers', 'Nama Customers', 'trim|required');
         $this->form_validation->set_rules('customers_id', 'Customers Id', 'trim|required|is_unique[customers.customers_id]');
         $this->form_validation->set_rules('gander_customers', 'Gander', 'trim|required');
@@ -25,11 +35,34 @@ class Customers extends CI_Controller
         $this->form_validation->set_rules('address_customers', 'Alamat Costumers', 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->template->load('v_template', 'customers/v_customers_add');
+            $this->template->load('v_template', 'customers/v_customers_add', $result);
         } else {
             $post = $this->input->post(NULL, TRUE);
 
             $this->customers_m->add($post);
+
+            if ($this->db->affected_rows() > 0) {
+                $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil disimpan</div>');
+                redirect('Customers');
+            }
+        }
+    }
+
+    public function edit($post)
+    {
+
+        $data = $this->customers_m->get($post)->row();
+
+        $array = [
+            'row' => $data
+        ];
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->template->load('v_template', 'customers/v_customers_edit', $array);
+        } else {
+            $post = $this->input->post(NULL, TRUE);
+
+            $this->customers_m->edit($post);
 
             if ($this->db->affected_rows() > 0) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil disimpan</div>');
