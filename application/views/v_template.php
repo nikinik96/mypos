@@ -111,6 +111,11 @@
                             <i class="fa fa-users"></i> <span>Customers</span>
                         </a>
                     </li>
+                    <li <?= $this->uri->segment(1) == "Items" ? 'class="active"' : null ?>>
+                        <a href="<?= site_url('Items') ?>">
+                            <i class="fa fa-users"></i> <span>Items</span>
+                        </a>
+                    </li>
                     <li class="header">Users</li>
                     <li <?= $this->uri->segment(1) == "Users" ? 'class="active"' : null  ?>>
                         <a href="<?= site_url('Users') ?>">
