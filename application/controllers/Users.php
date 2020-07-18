@@ -79,7 +79,7 @@ class Users extends CI_Controller
         $this->users_m->delet($post);
 
         if ($this->db->affected_rows() > 0) {
-            $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil dihapus </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger"><strong>Success!</strong> Data berhasil dihapus </div>');
             redirect('Users');
         }
     }
