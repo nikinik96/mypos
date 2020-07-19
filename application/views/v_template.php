@@ -111,11 +111,25 @@
                             <i class="fa fa-users"></i> <span>Customers</span>
                         </a>
                     </li>
-                    <li <?= $this->uri->segment(1) == "Items" ? 'class="active"' : null ?>>
-                        <a href="<?= site_url('Items') ?>">
-                            <i class="fa fa-users"></i> <span>Items</span>
+                    <li class="treeview <?= $this->uri->segment(1) == 'Items' ? 'active' : null  ?>">
+                        <a href="#">
+                            <i class="fa fa-archive"></i>
+                            <span>Product</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
                         </a>
+                        <ul class="treeview-menu">
+                            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Categories</a></li>
+                            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Units</a></li>
+                            <li <?= $this->uri->segment(1) == "Items" ? 'class="active"' : null ?>>
+                                <a href="<?= site_url('Items') ?>">
+                                    <i class="fa fa-circle-o text-success"></i> <span>Items</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+
                     <li class="header">Users</li>
                     <li <?= $this->uri->segment(1) == "Users" ? 'class="active"' : null  ?>>
                         <a href="<?= site_url('Users') ?>">
