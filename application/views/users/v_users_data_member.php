@@ -16,9 +16,7 @@
     <div class="row">
         <div class="col-md-2">
             <div class="box box-primary">
-                <div class="card" style="width: 18rem;">
-                    <img src="<?= base_url('assets/dist/img/default.png') ?>" class="card-img-top" style="padding-left: 40px;">
-                </div>
+                <img src="<?= base_url('assets/dist/img/default.png') ?>" class="img-responsive center-block">
             </div>
         </div>
         <div class="col-md-10">
