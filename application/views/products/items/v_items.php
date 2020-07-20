@@ -9,7 +9,7 @@
         <li>
             Product
         </li>
-        <li>
+        <li class="active">
             Items
         </li>
     </ol>
