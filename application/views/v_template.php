@@ -111,7 +111,7 @@
                             <i class="fa fa-users"></i> <span>Customers</span>
                         </a>
                     </li>
-                    <li class="treeview <?= $this->uri->segment(1) == 'Items' ? 'active' : null  ?>">
+                    <li class="treeview <?= $this->uri->segment(1) == 'Units' | $this->uri->segment(1) == 'Items' ? 'active' : null  ?>">
                         <a href="#">
                             <i class="fa fa-archive"></i>
                             <span>Product</span>
@@ -119,7 +119,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
-                        <ul class="treeview-menu <?= $this->uri->segment(1) == 'Units' | $this->uri->segment(1) == 'Items' ? 'active' : null  ?>">
+                        <ul class="treeview-menu">
                             <li>
                                 <a href="pages/charts/chartjs.html">
                                     <i class="fa fa-circle-o"></i> Categories

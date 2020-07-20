@@ -11,7 +11,8 @@ class Units extends CI_Controller
 	}
 	public function index()
 	{
-		$this->template->load('v_template', 'products/units/v_units');
+		$data['row'] = $this->units_m->get()->result();
+		$this->template->load('v_template', 'products/units/v_units', $data);
 	}
 
 	public function add()

@@ -21,7 +21,7 @@
         <div class="box-header">
             <h4 class="box-title">Data Units</h4>
             <div class="pull-right">
-                <a href="<?= site_url('units/add') ?>" class="btn btn-primary">
+                <a href="<?= site_url('Units/add') ?>" class="btn btn-primary">
                     <i class="fa fa-plus"></i>
                 </a>
             </div>
@@ -35,6 +35,19 @@
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php $no = 1; ?>
+                    <?php foreach ($row as $key => $data) { ?>
+                        <tr>
+                            <td class="text-center"><?= $no++; ?></td>
+                            <td><?= $data->units_name ?></td>
+                            <td>
+
+                            </td>
+                        </tr>
+                    <?php  } ?>
+
+                </tbody>
             </table>
         </div>
     </div>

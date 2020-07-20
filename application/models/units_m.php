@@ -4,7 +4,9 @@ class units_m extends CI_Model
 {
     public function get()
     {
-        #
+        $this->db->select('*');
+        $this->db->from('units');
+        return $this->db->get();
     }
 
     public function add($post)
