@@ -9,7 +9,7 @@
         <li>
             <a href="<?= site_url('Customers') ?>">Customers</a>
         </li>
-        <li>
+        <li class="active">
             Add
         </li>
     </ol>

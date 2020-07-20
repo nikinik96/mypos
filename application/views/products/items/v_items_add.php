@@ -12,7 +12,7 @@
         <li>
             <a href="<?= site_url('Items') ?>">Items</a>
         </li>
-        <li>
+        <li class="active">
             Add
         </li>
 

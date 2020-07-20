@@ -6,7 +6,7 @@
                 <i class="fa fa-dashboard"></i>
             </a>
         </li>
-        <li>
+        <li class="active">
             Customers
         </li>
     </ol>

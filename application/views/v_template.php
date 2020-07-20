@@ -119,9 +119,17 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Categories</a></li>
-                            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Units</a></li>
+                        <ul class="treeview-menu <?= $this->uri->segment(1) == 'Units' | $this->uri->segment(1) == 'Items' ? 'active' : null  ?>">
+                            <li>
+                                <a href="pages/charts/chartjs.html">
+                                    <i class="fa fa-circle-o"></i> Categories
+                                </a>
+                            </li>
+                            <li <?= $this->uri->segment(1) == "Units" ? 'class="active"' : null ?>>
+                                <a href="<?= site_url('Units') ?>">
+                                    <i class="fa fa-circle-o"></i> <span>Units</span>
+                                </a>
+                            </li>
                             <li <?= $this->uri->segment(1) == "Items" ? 'class="active"' : null ?>>
                                 <a href="<?= site_url('Items') ?>">
                                     <i class="fa fa-circle-o text-success"></i> <span>Items</span>
