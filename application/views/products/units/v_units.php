@@ -45,7 +45,7 @@
                                 <a href="" class="btn btn-success">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="" class="btn btn-danger">
+                                <a href="" class="btn btn-danger" onclick="return confirm('Data <?= $data->units_name ?> akan dihapus secara permanen, apakah anda yakin  ?');">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>
