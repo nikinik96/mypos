@@ -34,26 +34,28 @@
                 <tbody>
                     <?php $no = 1; ?>
                     <?php foreach ($row as $key => $data) { ?>
-                        <?php if ($this->session->userdata('user_id') == $data->user_id) { ?>
-                            <tr>
-                                <td class="text-center"><?= $no++ ?></td>
-                                <td><?= $data->name ?></td>
-                                <td><?= $data->email ?></td>
-                                <td><?= $data->alamat ?></td>
-                                <td class="text-center"><?= $data->is_active == 1 ? 'Active' : 'Tidak Aktif' ?></td>
-                                <td class="text-center"><?= $data->level == 1 ? 'Admin' : 'Member' ?></td>
-                                <td class="text-center">
-                                    <a href="<?= site_url('Users/edit_admin/' . $data->user_id) ?>" class="btn btn-success btn-sm">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    <?php if ($data->level == 1) { ?>
-                                        <a href="<?= site_url('Users/del/' . $data->user_id) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Data <?= $data->name ?> akan dihapus secara permanen, apakah anda yakin  ?')">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    <?php } ?>
-                                </td>
-                            </tr>
-                        <?php }  ?>
+                        <tr>
+                            <td class="text-center"><?= $no++ ?></td>
+                            <td><?= $data->name ?></td>
+                            <td><?= $data->email ?></td>
+                            <td><?= $data->alamat ?></td>
+                            <td class="text-center">
+                                <?php if ($data->is_active == 1) { ?>
+                                    <a href="" class="btn btn-success btn-xs">Aktif</a>
+                                <?php } else { ?>
+                                    <a href="" class="btn btn-danger btn-xs">Tidak Aktif</a>
+                                <?php } ?>
+                            </td>
+                            <td class="text-center"><?= $data->level == 1 ? 'Admin' : 'Member' ?></td>
+                            <td class="text-center">
+                                <a href="<?= site_url('Users/edit_admin/' . $data->user_id) ?>" class="btn btn-success btn-sm">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="<?= site_url('Users/del/' . $data->user_id) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Data <?= $data->name ?> akan dihapus secara permanen, apakah anda yakin  ?')">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
                     <?php } ?>
                 </tbody>
             </table>
