@@ -7,7 +7,7 @@ class Items extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('units_m');
+        $this->load->model(['units_m', 'categories_m']);
         check_not_login();
     }
 
@@ -19,11 +19,13 @@ class Items extends CI_Controller
 
     public function add()
     {
-        $units = $this->units_m->get()->result();
+        $units      = $this->units_m->get()->result();
+        $categories = $this->categories_m->get()->result();
 
 
         $data = [
-            'units' => $units
+            'units' => $units,
+            'categories' => $categories
         ];
         $this->template->load('v_template', 'products/items/v_items_add', $data);
     }
