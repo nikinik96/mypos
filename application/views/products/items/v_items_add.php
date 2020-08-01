@@ -47,14 +47,17 @@
                             <label for="">Category <i class="text-danger">*</i></label>
                             <select name="" id="" class="form-control">
                                 <option value="">-- Pilih --</option>
+                                <?php foreach ($units as $key => $data) { ?>
+                                    <option value="<?= $data->units_id ?>"><?= $data->units_name ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="">Unit <i class="text-danger">*</i></label>
                             <select name="" id="" class="form-control">
                                 <option value="">-- Pilih --</option>
-                                <?php foreach ($units as $key => $data) { ?>
-                                    <option value="<?= $data->units_id ?>"><?= $data->units_name ?></option>
+                                <?php foreach ($categories as $key => $data) { ?>
+                                    <option value="<?= $data->categories_id ?>"><?= $data->name_categories ?></option>
                                 <?php } ?>
                             </select>
                         </div>
