@@ -41,9 +41,9 @@
                             <td><?= $data->alamat ?></td>
                             <td class="text-center">
                                 <?php if ($data->is_active == 1) { ?>
-                                    <button class="btn btn-primary btn-sm">Active</button>
+                                    <a href="" class="btn btn-success btn-xs">Aktif</a>
                                 <?php } else { ?>
-                                    <button class="btn btn-danger btn-sm">Not Active</button>
+                                    <a href="" class="btn btn-danger btn-xs">Tidak Aktif</a>
                                 <?php } ?>
                             </td>
                             <td class="text-center"><?= $data->level == 1 ? 'Admin' : 'Member' ?></td>

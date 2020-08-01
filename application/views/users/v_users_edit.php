@@ -60,7 +60,7 @@
                         </div>
                         <div class="form-group <?= form_error('is_active') == true ? 'has-error' : null ?>">
                             <label for="">Is Active <i class="text-danger">* </i></label>
-                            <select name="is_active" class="form-control">
+                            <select name="is_active" class="form-control select2" style="width: 100%;">
                                 <option value="">-- Pilih --</option>
                                 <option value="1" <?= $row->is_active == 1 ? 'selected' : null ?>>Aktif</option>
                                 <option value="0" <?= $row->is_active == 0 ? 'selected' : null ?>>Tidak Aktif</option>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="form-group <?= form_error('level') == true ? 'has-error' : null ?>">
                             <label for="">Level <i class="text-danger">* </i></label>
-                            <select name="level" class="form-control">
+                            <select name="level" class="form-control select2" style="width: 100%;">
                                 <option value="">-- Pilih --</option>
                                 <option value="1" <?= $row->level == 1 ? 'selected' : null ?>>Admin</option>
                                 <option value="2" <?= $row->level == 2 ? 'selected' : null ?>>Member</option>
