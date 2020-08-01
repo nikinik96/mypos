@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<?= base_url('assets') ?>/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="<?= base_url('assets') ?>/dist/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="<?= base_url('assets') ?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-
+    <link rel="stylesheet" href="<?= base_url('assets') ?>/bower_components/select2/dist/css/select2.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -162,6 +162,7 @@
     </div>
 
     <script src="<?= base_url('assets') ?>/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="<?= base_url('assets') ?>/bower_components/select2/dist/js/select2.full.min.js"></script>
     <script src="<?= base_url('assets') ?>/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url('assets') ?>/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="<?= base_url('assets') ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -174,7 +175,11 @@
             $('.sidebar-menu').tree()
         })
     </script>
-
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>
     <script>
         $(document).ready(function() {
             $('#mytable').DataTable();
