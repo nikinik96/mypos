@@ -32,7 +32,6 @@
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th class="text-center">Barcode</th>
                         <th class="text-center">Product Name</th>
                         <th class="text-center">Qty</th>
                         <th class="text-center">Date</th>
@@ -41,7 +40,6 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

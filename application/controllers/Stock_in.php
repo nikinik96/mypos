@@ -25,7 +25,6 @@ class Stock_in extends CI_Controller
         ];
 
         $this->form_validation->set_rules('date', 'Date', 'trim|required');
-        $this->form_validation->set_rules('barcode', 'Barcode', 'trim|required');
         $this->form_validation->set_rules('product', 'Product', 'trim|required');
         $this->form_validation->set_rules('stock', 'Stock', 'trim|required');
         $this->form_validation->set_rules('supplier_id', 'Supplier ID', 'trim|required');

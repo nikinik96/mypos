@@ -35,15 +35,14 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <form action="" method="POST">
-                        <input type="hidden" name="item_id" id="item_id">
                         <div class="form-group">
                             <label for="">Date <i class="text-danger">*</i></label>
                             <input type="date" name="date" id="date" class="form-control" value="<?= date('Y-m-d') ?>">
                             <?= form_error('date', '<div class="text-danger">', '</div>'); ?>
                         </div>
-                        <label for="">Barcode <i class="text-danger">*</i></label>
+                        <label for="">Product Item <i class="text-danger">*</i></label>
                         <div class="input-group">
-                            <input type="text" name="barcode" id="barcode" class="form-control" readonly>
+                            <input type="text" name="item_id" id="item_id" class="form-control" readonly>
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                     <i class="fa fa-search"></i>
@@ -104,7 +103,6 @@
                     <thead>
                         <tr>
                             <th class="text-center">#</th>
-                            <th class="text-center">Barcode</th>
                             <th class="text-center">Product Name</th>
                             <th class="text-center">Size</th>
                             <th class="text-center">Price (Rp)</th>
@@ -117,13 +115,12 @@
                         <?php foreach ($item as $key => $data) { ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $data->barcode ?></td>
                                 <td><?= $data->item_name ?></td>
                                 <td><?= $data->size ?></td>
                                 <td><?= $data->price ?></td>
                                 <td class="text-center"><?= $data->stock ?></td>
                                 <td class="text-center">
-                                    <button class="btn btn-success btn-sm" id="select" data-item_id="<?= $data->item_id ?>" data-product="<?= $data->item_name ?>" data-item="<?= $data->item_id ?>" data-barcode="<?= $data->barcode ?>" data-stock="<?= $data->stock ?>">
+                                    <button class="btn btn-success btn-sm" id="select" data-item_id="<?= $data->item_id ?>" data-product="<?= $data->item_name ?>" data-item="<?= $data->item_id ?>" data-stock="<?= $data->stock ?>">
                                         <i class="fa fa-check"></i>
                                     </button>
                                 </td>
@@ -141,13 +138,11 @@
         $(document).on('click', '#select', function() {
             var item = $(this).data('item');
             var product = $(this).data('product');
-            var barcode = $(this).data('barcode');
             var stock = $(this).data('stock');
             var item_id = $(this).data('item_id');
 
             $('#item').val(item);
             $('#product').val(product);
-            $('#barcode').val(barcode);
             $('#stock').val(stock);
             $('#item_id').val(item_id);
 

@@ -45,7 +45,7 @@
                             <td class="text-center"><?= $data->customers_id ?></td>
                             <td><?= $data->name_customers ?></td>
                             <td class="text-center"><?= $data->phone_customers ?></td>
-                            <td class="text-center"><?= $data->gander_customers ?></td>
+                            <td class="text-center"><?= $data->gander_customers == 1 ? 'Laki-Laki' : 'Perempuan' ?></td>
                             <td><?= $data->address_customers ?></td>
                             <td class="text-center">
                                 <a href="<?= site_url('Customers/edit/' . $data->customers_id) ?>" class="btn btn-success">

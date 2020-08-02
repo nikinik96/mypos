@@ -24,7 +24,6 @@ class item_m extends CI_Model
 
     public function add($post)
     {
-        $params['barcode']         = $post['barcode'];
         $params['item_name']       = $post['item_name'];
         $params['categories_id']   = $post['categories_id'];
         $params['units_id']        = $post['units_id'];
@@ -40,6 +39,14 @@ class item_m extends CI_Model
         $id     = $data['item_id'];
 
         $sql    = "UPDATE item SET stock = stock + '$qty' WHERE item_id = '$id' ";
+        $this->db->query($sql);
+    }
+    public function update_stock_out($data)
+    {
+        $qty    = $data['qty'];
+        $id     = $data['item_id'];
+
+        $sql    = "UPDATE item SET stock = stock - '$qty' WHERE item_id = '$id' ";
         $this->db->query($sql);
     }
 }

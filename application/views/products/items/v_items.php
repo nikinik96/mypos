@@ -33,7 +33,6 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th class="text-center">Barcode</th>
                         <th class="text-center">Product Name</th>
                         <th class="text-center">Category</th>
                         <th class="text-center">Unit</th>
@@ -48,7 +47,6 @@
                     <?php foreach ($row as $key => $data) { ?>
                         <tr>
                             <td><?= $no++; ?></td>
-                            <td class="text-center"><?= $data->barcode ?></td>
                             <td><?= $data->item_name ?></td>
                             <td><?= $data->name_categories ?></td>
                             <td class="text-center"><?= $data->units_id ?></td>

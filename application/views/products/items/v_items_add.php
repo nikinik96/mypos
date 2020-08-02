@@ -35,11 +35,6 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <form action="" method="POST">
-                        <div class="form-group <?= form_error('barcode') == TRUE ? 'has-error' : null ?>">
-                            <label for="barcode">Barcode <i class="text-danger">*</i></label>
-                            <input type="text" name="barcode" id="barcode" readonly="true" value="BARC_<?= sprintf("%04s", $row) ?>" class="form-control">
-                            <?= form_error('barcode', '<div class="text-danger">', '</div>'); ?>
-                        </div>
                         <div class="form-group <?= form_error('categories_id') == TRUE ? 'has-error' : null ?>">
                             <label for="">Category <i class="text-danger">*</i></label>
                             <select name="categories_id" id="categories_id" class="form-control select2" style="width: 100%;">

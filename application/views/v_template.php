@@ -108,6 +108,11 @@
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         </a>
                     </li>
+                    <li <?= $this->uri->segment(1) == "Suppliers" ? 'class="active"' : null ?>>
+                        <a href="<?= site_url('Suppliers') ?>">
+                            <i class="fa fa-truck"></i> <span>Suppliers</span>
+                        </a>
+                    </li>
                     <li <?= $this->uri->segment(1) == "Customers" ? 'class="active"' : null ?>>
                         <a href="<?= site_url('Customers') ?>">
                             <i class="fa fa-users"></i> <span>Customers</span>
@@ -127,11 +132,6 @@
                                     <i class="fa fa-circle-o"></i> Categories
                                 </a>
                             </li>
-                            <!-- <li <?= $this->uri->segment(1) == "Units" ? 'class="active"' : null ?>>
-                                <a href="<?= site_url('Units') ?>">
-                                    <i class="fa fa-circle-o"></i> <span>Units</span>
-                                </a>
-                            </li> -->
                             <li <?= $this->uri->segment(1) == "Items" ? 'class="active"' : null ?>>
                                 <a href="<?= site_url('Items') ?>">
                                     <i class="fa fa-circle-o text-success"></i> <span>Items</span>
@@ -140,7 +140,7 @@
                         </ul>
                     </li>
 
-                    <li class="treeview <?= $this->uri->segment(1) == "Stock_in" ? 'active' : null ?>">
+                    <li class="treeview <?= $this->uri->segment(1) == "Stock_in" | $this->uri->segment(1) == "Stock_out" ? 'active' : null ?>">
                         <a href="#">
                             <i class="fa fa-shopping-cart"></i>
                             <span>Transaksi</span>
@@ -159,8 +159,8 @@
                                     <i class="fa fa-circle-o"></i> Stock In
                                 </a>
                             </li>
-                            <li>
-                                <a href="">
+                            <li <?= $this->uri->segment(1) == "Stock_out" ? 'class="active"' : null ?>>
+                                <a href="<?= site_url('Stock_out'); ?>">
                                     <i class="fa fa-circle-o"></i> Stock Out
                                 </a>
                             </li>

@@ -24,15 +24,10 @@ class Items extends CI_Controller
     {
         $units      = $this->units_m->get()->result();
         $categories = $this->categories_m->get()->result();
-        $ai         = $this->item_m->ai_code();
-
-        $nourut = substr($ai, 5, 4);
-        $kd_ai  = $nourut + 1;
 
         $data = [
             'units' => $units,
             'categories' => $categories,
-            'row' => $kd_ai
         ];
 
         $this->form_validation->set_rules('barcode', 'Barcode', 'trim|required');
