@@ -9,6 +9,7 @@ class Units extends CI_Controller
 		$this->load->model('units_m');
 		$this->load->library('form_validation');
 	}
+
 	public function index()
 	{
 		$data['row'] = $this->units_m->get()->result();

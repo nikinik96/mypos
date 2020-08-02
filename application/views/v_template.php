@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="<?= base_url('assets') ?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url('assets') ?>/bower_components/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="<?= base_url('assets') ?>/bower_components/select2/dist/css/select2.min.css">
-
+    <link rel="stylesheet" href="<?= base_url('assets') ?>/bower_components/select2/dist/css/select2.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -127,14 +127,41 @@
                                     <i class="fa fa-circle-o"></i> Categories
                                 </a>
                             </li>
-                            <li <?= $this->uri->segment(1) == "Units" ? 'class="active"' : null ?>>
+                            <!-- <li <?= $this->uri->segment(1) == "Units" ? 'class="active"' : null ?>>
                                 <a href="<?= site_url('Units') ?>">
                                     <i class="fa fa-circle-o"></i> <span>Units</span>
                                 </a>
-                            </li>
+                            </li> -->
                             <li <?= $this->uri->segment(1) == "Items" ? 'class="active"' : null ?>>
                                 <a href="<?= site_url('Items') ?>">
                                     <i class="fa fa-circle-o text-success"></i> <span>Items</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview <?= $this->uri->segment(1) == "Stock_in" ? 'active' : null ?>">
+                        <a href="#">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Transaksi</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="">
+                                    <i class="fa fa-circle-o text-danger"></i> Sales
+                                </a>
+                            </li>
+                            <li <?= $this->uri->segment(1) == "Stock_in" ? 'class="active"' : null ?>>
+                                <a href="<?= site_url('Stock_in'); ?>">
+                                    <i class="fa fa-circle-o"></i> Stock In
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fa fa-circle-o"></i> Stock Out
                                 </a>
                             </li>
                         </ul>
@@ -151,6 +178,9 @@
         </aside>
 
         <div class="content-wrapper">
+            <script src="<?= base_url('assets') ?>/bower_components/jquery/dist/jquery.min.js"></script>
+
+
             <?= $contents ?>
         </div>
         <footer class="main-footer">
@@ -165,6 +195,7 @@
 
     <script src="<?= base_url('assets') ?>/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="<?= base_url('assets') ?>/bower_components/select2/dist/js/select2.full.min.js"></script>
+    <script src="<?= base_url('assets') ?>/bower_components/select2/dist/js/select2.full.min.js"></script>
     <script src="<?= base_url('assets') ?>/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url('assets') ?>/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="<?= base_url('assets') ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -176,6 +207,11 @@
         $(document).ready(function() {
             $('.sidebar-menu').tree()
         })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
     </script>
     <script>
         $(document).ready(function() {

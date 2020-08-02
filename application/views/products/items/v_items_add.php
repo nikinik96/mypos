@@ -34,32 +34,55 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form action="">
-                        <div class="form-group">
-                            <label for="">Barcode <i class="text-danger">*</i></label>
-                            <input type="text" name="" id="" readonly="true" class="form-control">
+                    <form action="" method="POST">
+                        <div class="form-group <?= form_error('barcode') == TRUE ? 'has-error' : null ?>">
+                            <label for="barcode">Barcode <i class="text-danger">*</i></label>
+                            <input type="text" name="barcode" id="barcode" readonly="true" value="BARC_<?= sprintf("%04s", $row) ?>" class="form-control">
+                            <?= form_error('barcode', '<div class="text-danger">', '</div>'); ?>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group <?= form_error('categories_id') == TRUE ? 'has-error' : null ?>">
                             <label for="">Category <i class="text-danger">*</i></label>
-                            <select name="" id="" class="form-control select2" style="width: 100%;">
+                            <select name="categories_id" id="categories_id" class="form-control select2" style="width: 100%;">
                                 <option value="">-- Pilih --</option>
                                 <?php foreach ($categories as $key => $data) { ?>
                                     <option value="<?= $data->categories_id ?>"><?= $data->name_categories ?></option>
                                 <?php } ?>
                             </select>
+                            <?= form_error('categories_id', '<div class="text-danger">', '</div>'); ?>
+                        </div>
+                        <div class="form-group <?= form_error('item_name') == TRUE ? 'has-error' : null ?>">
+                            <label for="item_name">Product Name <i class="text-danger">*</i></label>
+                            <input type="text" name="item_name" id="item_name" class="form-control" value="<?= set_value('item_name') ?>" placeholder="Product Name" autocomplete="off">
+                            <?= form_error('item_name', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group">
-                            <label for="">Product Name <i class="text-danger">*</i></label>
-                            <input type="text" name="" id="" class="form-control">
+                            <label for="">Size <i class="text-danger">*</i></label>
+                            <select name="size" id="size" class="form-control select2" style="width: 100%;">
+                                <option value="">-- Pilih --</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                                <option value="XXXL">XXXL</option>
+                            </select>
+                            <?= form_error('size', '<div class="text-danger">', '</div>'); ?>
                         </div>
-                        <div class="form-group">
-                            <label for="">Units <i class="text-danger">*</i></label>
-                            <input type="text" readonly name="" id="" value="1" class="form-control">
+                        <div class="form-group <?= form_error('units_id') == TRUE ? 'has-error' : null ?>">
+                            <label for="units_id">Units <i class="text-danger">*</i></label>
+                            <input type="text" readonly name="units_id" id="units_id" value="1" class="form-control">
+                            <?= form_error('units_id', '<div class="text-danger">', '</div>'); ?>
                         </div>
-                        <div class="form-group">
-                            <label for="">Price <i class="text-danger">*</i></label>
-                            <input type="text" name="" id="price" class="form-control">
+                        <div>
+                            <label for="price">Price <i class="text-danger">*</i></label>
                         </div>
+                        <div class="input-group <?= form_error('price') == TRUE ? 'has-error' : null ?>">
+                            <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                            <input type="text" name="price" id="price" class="form-control" placeholder="Price" value="<?= set_value('price') ?>" autocomplete="off">
+                        </div>
+                        <?= form_error('price', '<div class="text-danger">', '</div>'); ?>
+                        <br>
                         <div class="form-group">
                             <button type="reset" class="btn btn-danger"><i class="fa fa-rotate-left"></i></button>
                             <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i></button>
@@ -76,7 +99,7 @@
     rupiah.addEventListener('keyup', function(e) {
         // tambahkan 'Rp.' pada saat form di ketik
         // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-        rupiah.value = formatRupiah(this.value, 'Rp. ');
+        rupiah.value = formatRupiah(this.value, '');
     });
 
     /* Fungsi formatRupiah */
@@ -94,6 +117,6 @@
         }
 
         rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        return prefix == undefined ? rupiah : (rupiah ? '' + rupiah : '');
     }
 </script>

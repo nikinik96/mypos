@@ -16,6 +16,7 @@
 </section>
 
 <section class="content">
+    <?= $this->session->flashdata('message'); ?>
     <div class="box box-primary">
         <div class="box-header">
             <h4>
@@ -33,14 +34,31 @@
                     <tr>
                         <th>#</th>
                         <th class="text-center">Barcode</th>
-                        <th>Name</th>
+                        <th class="text-center">Product Name</th>
                         <th class="text-center">Category</th>
                         <th class="text-center">Unit</th>
-                        <th>Price</th>
+                        <th class="text-center">Size</th>
+                        <th class="text-center">Price</th>
                         <th class="text-center">Stock</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php $no = 1; ?>
+                    <?php foreach ($row as $key => $data) { ?>
+                        <tr>
+                            <td><?= $no++; ?></td>
+                            <td class="text-center"><?= $data->barcode ?></td>
+                            <td><?= $data->item_name ?></td>
+                            <td><?= $data->name_categories ?></td>
+                            <td class="text-center"><?= $data->units_id ?></td>
+                            <td class="text-center"><?= $data->size ?></td>
+                            <td>Rp. <?= $data->price ?></td>
+                            <td class="text-center"><?= $data->stock ?></td>
+                            <td></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
         </div>
     </div>
