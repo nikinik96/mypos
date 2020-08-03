@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini <?= $this->uri->segment(1) == 'Sales' ? 'sidebar-collapse' : null ?>">
     <div class="wrapper">
 
         <header class="main-header">
@@ -118,7 +118,7 @@
                             <i class="fa fa-users"></i> <span>Customers</span>
                         </a>
                     </li>
-                    <li class="treeview <?= $this->uri->segment(1) == 'Units' | $this->uri->segment(1) == 'Items' | $this->uri->segment(1) == 'Categories' ? 'active' : null  ?>">
+                    <li class="treeview <?= $this->uri->segment(1) == 'Units' || $this->uri->segment(1) == 'Items' || $this->uri->segment(1) == 'Categories' ? 'active' : null  ?>">
                         <a href="#">
                             <i class="fa fa-archive"></i>
                             <span>Product</span>
@@ -140,7 +140,7 @@
                         </ul>
                     </li>
 
-                    <li class="treeview <?= $this->uri->segment(1) == "Stock_in" | $this->uri->segment(1) == "Stock_out" ? 'active' : null ?>">
+                    <li class="treeview <?= $this->uri->segment(1) == "Sales" || $this->uri->segment(1) == "Stock_in" || $this->uri->segment(1) == "Stock_out" ? 'active' : null ?>">
                         <a href="#">
                             <i class="fa fa-shopping-cart"></i>
                             <span>Transaksi</span>
@@ -149,8 +149,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li>
-                                <a href="">
+                            <li <?= $this->uri->segment(1) == "Sales" ? 'class="active"' : null ?>>
+                                <a href="<?= site_url('Sales'); ?>">
                                     <i class="fa fa-circle-o text-danger"></i> Sales
                                 </a>
                             </li>
@@ -193,6 +193,7 @@
         <div class="control-sidebar-bg"></div>
     </div>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="<?= base_url('assets') ?>/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="<?= base_url('assets') ?>/bower_components/select2/dist/js/select2.full.min.js"></script>
     <script src="<?= base_url('assets') ?>/bower_components/select2/dist/js/select2.full.min.js"></script>

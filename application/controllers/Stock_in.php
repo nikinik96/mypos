@@ -18,7 +18,6 @@ class Stock_in extends CI_Controller
     public function stock_in_add()
     {
         $item = $this->item_m->get()->result();
-        $item = $this->item_m->get()->result();
 
         $data = [
             'item' => $item
