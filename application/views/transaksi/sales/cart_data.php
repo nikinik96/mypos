@@ -18,4 +18,6 @@
             </td>
         </tr>
     <?php } ?>
+<?php } else { ?>
+    <td colspan="8" class="text-center">Data tidak ditemukan</td>
 <?php } ?>

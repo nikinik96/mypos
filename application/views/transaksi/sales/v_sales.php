@@ -164,7 +164,7 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input type="number" name="discount" id="discount" value="0" min="0" class="form-control">
+                                    <input type="number" name="discount" id="discount" min="0" class="form-control" placeholder="Discount">
                                 </div>
                             </td>
                         </tr>
@@ -193,7 +193,7 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input type="number" id="cash" value="0" min="0" class="form-control">
+                                    <input type="number" id="cash" min="0" class="form-control" placeholder="Cash">
                                 </div>
                             </td>
                         </tr>
@@ -327,6 +327,7 @@
                         $('#cart_table').load('<?= site_url('sales/cart_data') ?>', function() {
                             swal("Success!", "Data ditambahkan ke cart!", "success");
                         })
+                        $('#item_name').val('');
                         $('#item_id').val('');
                         $('#qty').val(1);
 
@@ -337,7 +338,7 @@
             })
         }
     });
-    
+
     $(document).on('click', '#del_cart', function() {
 
         if (confirm('Apakah Yakin?')) {

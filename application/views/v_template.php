@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini <?= $this->uri->segment(1) == 'Sales' ? 'sidebar-collapse' : null ?>">
+<body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
         <header class="main-header">
