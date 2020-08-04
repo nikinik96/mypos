@@ -13,11 +13,12 @@
 </section>
 
 <section class="content">
+    <?= $this->session->flashdata('message'); ?>
     <div class="box">
         <div class="box-header">
             <h4>Data Suppliers
                 <div class="pull-right">
-                    <a href="" class="btn btn-primary">
+                    <a href="<?= site_url('Suppliers/add') ?>" class="btn btn-primary">
                         <i class="fa fa-plus"></i>
                     </a>
                 </div>
@@ -35,13 +36,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php $no = 1; ?>
+                    <?php foreach ($row as $key => $data) { ?>
+                        <tr>
+                            <td><?= $no++; ?></td>
+                            <td><?= $data->name ?></td>
+                            <td><?= $data->phone ?></td>
+                            <td><?= $data->address ?></td>
+                            <td>
+                                <a href="" class="btn btn-success">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php  } ?>
                 </tbody>
             </table>
         </div>
