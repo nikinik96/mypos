@@ -51,7 +51,6 @@
                                 <a href="<?= site_url('Customers/edit/' . $data->customers_id) ?>" class="btn btn-success">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <br>
                                 <a href="<?= site_url('Customers/del/' . $data->customers_id) ?>" class="btn btn-danger" onclick="return confirm('Data <?= $data->name_customers ?> akan dihapus secara permanen, apakah anda yakin  ?');">
                                     <i class="fa fa-trash"></i>
                                 </a>

@@ -35,7 +35,7 @@
                         <th>#</th>
                         <th class="text-center">Product Name</th>
                         <th class="text-center">Category</th>
-                        <th class="text-center">Unit</th>
+                        <th class="text-center">Suppliers</th>
                         <th class="text-center">Size</th>
                         <th class="text-center">Price (Harga Beli)</th>
                         <th class="text-center text-danger">Price (Harga Jual)</th>

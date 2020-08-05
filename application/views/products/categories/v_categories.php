@@ -19,12 +19,13 @@
     <?= $this->session->flashdata('message'); ?>
     <div class="box box-primary">
         <div class="box-header">
-            <h4>Data Categories</h4>
-            <div class="pull-right">
-                <a href="<?php echo site_url('Categories/add') ?>" class="btn btn-primary">
-                    <i class="fa fa-plus"></i>
-                </a>
-            </div>
+            <h4>Data Categories
+                <div class="pull-right">
+                    <a href="<?php echo site_url('Categories/add') ?>" class="btn btn-primary">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </div>
+            </h4>
         </div>
         <div class="box-body  table-responsive">
             <table class="table table-bordered table-striped" id="mytable">
