@@ -65,7 +65,7 @@
                             <label for="">Supplier <i class="text-danger">*</i></label>
                             <select name="supplier_id" id="supplier_id" class="form-control select2" style="width: 100%;">
                                 <option value="">-- Pilih --</option>
-                                <option value="2">NoN</option>
+                                <option value="4">NoN</option>
                             </select>
                             <?= form_error('supplier_id', '<div class="text-danger">', '</div>'); ?>
                         </div>
@@ -105,7 +105,7 @@
                             <th class="text-center">#</th>
                             <th class="text-center">Product Name</th>
                             <th class="text-center">Size</th>
-                            <th class="text-center">Price (Rp)</th>
+                            <th class="text-center">Harga Beli (Rp)</th>
                             <th class="text-center">Stock</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -117,7 +117,7 @@
                                 <td><?= $no++; ?></td>
                                 <td><?= $data->item_name ?></td>
                                 <td><?= $data->size ?></td>
-                                <td><?= $data->price ?></td>
+                                <td><?= $data->harga_beli ?></td>
                                 <td class="text-center"><?= $data->stock ?></td>
                                 <td class="text-center">
                                     <button class="btn btn-success btn-sm" id="select" data-item_id="<?= $data->item_id ?>" data-product="<?= $data->item_name ?>" data-item="<?= $data->item_id ?>" data-stock="<?= $data->stock ?>">

@@ -14,7 +14,7 @@
 
 <section class="content">
     <?= $this->session->flashdata('message'); ?>
-    <div class="box">
+    <div class="box box-primary">
         <div class="box-header">
             <h4>Data Suppliers
                 <div class="pull-right">
@@ -43,11 +43,11 @@
                             <td><?= $data->name ?></td>
                             <td><?= $data->phone ?></td>
                             <td><?= $data->address ?></td>
-                            <td>
+                            <td class="text-center">
                                 <a href="" class="btn btn-success">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="" class="btn btn-danger">
+                                <a href="<?= site_url('Suppliers/del/' . $data->supplier_id) ?>" class="btn btn-danger" onclick="return confirm('Data <?= $data->name ?> akan dihapus secara permanen, apakah anda yakin  ?');">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>

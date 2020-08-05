@@ -29,8 +29,12 @@ class item_m extends CI_Model
             $params['item_name']       = $post['item_name_' . $i];
             $params['categories_id']   = $post['categories_id_' . $i];
             $params['units_id']        = $post['units_id_' . $i];
-            $params['price']           = $post['price_' . $i];
+            $params['harga_beli']      = $post['harga_beli_' . $i];
+            $params['harga_jual']      = $post['harga_jual_' . $i];
             $params['size']            = $post['size_' . $i];
+            $params['stock']           = $post['stock_' . $i];
+            $params['grand_total']     = $post['harga_beli_' . $i] * $post['stock_' . $i];
+
 
             $this->db->insert('item', $params);
         }

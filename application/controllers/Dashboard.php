@@ -12,14 +12,14 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        $customers  = $this->dashboard_m->get_customers();
-        $items      = $this->dashboard_m->get_items();
-        $suppliers  = $this->dashboard_m->get_suppliers();
+        $items              = $this->dashboard_m->get_items();
+        $suppliers          = $this->dashboard_m->get_suppliers();
+        $pengeluaran        = $this->dashboard_m->get_pengeluaran();
 
         $data = [
-            'customers' => $customers,
-            'items'     => $items,
-            'suppliers' => $suppliers
+            'items'         => $items,
+            'suppliers'     => $suppliers,
+            'pengeluaran'   => $pengeluaran
         ];
 
         $this->template->load('v_template', 'v_dashboard', $data);

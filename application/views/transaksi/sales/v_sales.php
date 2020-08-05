@@ -135,7 +135,7 @@
                             </tr>
                         </thead>
                         <tbody id="cart_table">
-                            <?php $this->view('transaksi/sales/cart_data') ?>
+                            <?php $this->view('transaksi/sales/v_cart_data') ?>
                         </tbody>
                     </table>
                 </div>
@@ -324,7 +324,7 @@
                 dataType: 'json',
                 success: function(result) {
                     if (result.success == true) {
-                        $('#cart_table').load('<?= site_url('sales/cart_data') ?>', function() {
+                        $('#cart_table').load('<?= site_url('sales/v_cart_data') ?>', function() {
                             swal("Success!", "Data ditambahkan ke cart!", "success");
                         })
                         $('#item_name').val('');
@@ -352,7 +352,7 @@
                 },
                 success: function(result) {
                     if (result.success == true) {
-                        $('#cart_table').load('<?= site_url('sales/cart_data') ?>', function() {
+                        $('#cart_table').load('<?= site_url('sales/v_cart_data') ?>', function() {
                             swal("Success!", "Data berhasil dihapus!", "success");
                         })
                     } else {

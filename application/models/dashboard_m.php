@@ -8,11 +8,10 @@ class dashboard_m extends CI_Model
         $this->db->select('');
     }
 
-    public function get_customers()
+    public function get_pengeluaran()
     {
-        $query = $this->db->query("SELECT * FROM customers");
-        $count = $query->num_rows();
-        return $count;
+        $query = $this->db->query("SELECT SUM(grand_total) AS grand_total FROM item");
+        return $query->row()->grand_total;
     }
 
     public function get_items()

@@ -37,7 +37,8 @@
                         <th class="text-center">Category</th>
                         <th class="text-center">Unit</th>
                         <th class="text-center">Size</th>
-                        <th class="text-center">Price</th>
+                        <th class="text-center">Price (Harga Beli)</th>
+                        <th class="text-center text-danger">Price (Harga Jual)</th>
                         <th class="text-center">Stock</th>
                         <th class="text-center">Actions</th>
                     </tr>
@@ -51,7 +52,8 @@
                             <td><?= $data->name_categories ?></td>
                             <td class="text-center"><?= $data->units_id ?></td>
                             <td class="text-center"><?= $data->size ?></td>
-                            <td><?= indo_currency($data->price)  ?></td>
+                            <td><?= indo_currency($data->harga_beli)  ?></td>
+                            <td><?= indo_currency($data->harga_jual)  ?></td>
                             <td class="text-center"><?= $data->stock ?></td>
                             <td>
 

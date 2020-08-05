@@ -21,4 +21,10 @@ class Suppliers_m extends CI_Model
 
         $this->db->insert('supplier', $params);
     }
+
+    public function del($id)
+    {
+        $this->db->where('supplier_id', $id);
+        $this->db->delete('supplier');
+    }
 }
