@@ -19,5 +19,5 @@
         </tr>
     <?php } ?>
 <?php } else { ?>
-    <td colspan="8" class="text-center">Data tidak ditemukan</td>
+    <td colspan="8" class="text-center">Tidak ada data di table cart!</td>
 <?php } ?>

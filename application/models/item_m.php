@@ -24,13 +24,16 @@ class item_m extends CI_Model
 
     public function add($post)
     {
-        $params['item_name']       = $post['item_name'];
-        $params['categories_id']   = $post['categories_id'];
-        $params['units_id']        = $post['units_id'];
-        $params['price']           = $post['price'];
-        $params['size']             = $post['size'];
+        for ($i = 1; $i <= $post['jml_product']; $i++) {
 
-        $this->db->insert('item', $params);
+            $params['item_name']       = $post['item_name_' . $i];
+            $params['categories_id']   = $post['categories_id_' . $i];
+            $params['units_id']        = $post['units_id_' . $i];
+            $params['price']           = $post['price_' . $i];
+            $params['size']            = $post['size_' . $i];
+
+            $this->db->insert('item', $params);
+        }
     }
 
     public function update_stock_in($data)

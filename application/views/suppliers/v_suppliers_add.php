@@ -31,7 +31,7 @@
 
         <div class="box-body">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-md-offset-3">
                     <form action="" method="POST">
                         <div class="form-group <?= form_error('name') == TRUE ? 'has-error' : null ?>">
                             <label for="name">Nama Suppliers <i class="text-denger">*</i></label>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group">
                             <button type="reset" class="btn btn-danger"><i class="fa fa-rotate-left"></i></button>
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+                            <button type="submit" id="add" class="btn btn-primary"><i class="fa fa-plus"></i></button>
                         </div>
                     </form>
                 </div>

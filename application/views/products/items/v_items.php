@@ -22,8 +22,8 @@
             <h4>
                 Data Items
                 <div class="pull-right">
-                    <a href="<?= site_url('Items/add') ?>" class="btn btn-primary">
-                        <i class="fa fa-plus"></i>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
+
                     </a>
                 </div>
             </h4>
@@ -51,9 +51,11 @@
                             <td><?= $data->name_categories ?></td>
                             <td class="text-center"><?= $data->units_id ?></td>
                             <td class="text-center"><?= $data->size ?></td>
-                            <td>Rp. <?= $data->price ?></td>
+                            <td><?= indo_currency($data->price)  ?></td>
                             <td class="text-center"><?= $data->stock ?></td>
-                            <td></td>
+                            <td>
+
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -61,3 +63,27 @@
         </div>
     </div>
 </section>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Product Item</h4>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="<?= site_url('Items/add_lopp') ?>">
+                    <div class="form-group">
+                        <label for="jml_product" class="control-label">Jumlah Product <i class="text-danger">*</i></label>
+                        <input type="number" class="form-control" name="jml_product" name="jml_product" placeholder="Jumlah Product" autocomplete="off" autofocus required>
+                    </div>
+                    <div class="form-group">
+                        <button type="reset" class="btn btn-danger"><i class="fa fa-rotate-left"></i></button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

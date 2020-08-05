@@ -20,34 +20,35 @@ class Items extends CI_Controller
         $this->template->load('v_template', 'products/items/v_items', $data);
     }
 
-    public function add()
+    public function add_lopp()
     {
-        $units      = $this->units_m->get()->result();
-        $categories = $this->categories_m->get()->result();
+        $data = $this->input->post(NULL, TRUE);
+
+        $jml_product = $data['jml_product'];
+        $units       = $this->units_m->get()->result();
+        $categories  = $this->categories_m->get()->result();
 
         $data = [
             'units' => $units,
             'categories' => $categories,
+            'jml_product' => $jml_product
         ];
+        $this->template->load('v_template', 'products/items/v_items_add', $data);
+    }
 
-        $this->form_validation->set_rules('barcode', 'Barcode', 'trim|required');
-        $this->form_validation->set_rules('categories_id', 'Categories', 'trim|required');
-        $this->form_validation->set_rules('item_name', 'Item Name', 'trim|required');
-        $this->form_validation->set_rules('units_id', 'Units', 'trim|required');
-        $this->form_validation->set_rules('price', 'Price', 'trim|required');
+    public function add()
+    {
+        $post = $this->input->post(NULL, TRUE);
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->template->load('v_template', 'products/items/v_items_add', $data);
-        } else {
+        $this->item_m->add($post);
 
-            $post = $this->input->post(NULL, TRUE);
+        // $this->
 
-            $this->item_m->add($post);
 
-            if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil disimpan</div>');
-                redirect('Items');
-            }
+
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil disimpan</div>');
+            redirect('Items');
         }
     }
 }

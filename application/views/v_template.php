@@ -29,7 +29,7 @@
     <div class="wrapper">
 
         <header class="main-header">
-            <a href="../../index2.html" class="logo">
+            <a href="<?= site_url('Dashboard') ?>" class="logo">
                 <span class="logo-mini"><b>W</b>eb</span>
                 <span class="logo-lg"><b>My</b>POS</span>
             </a>
@@ -68,7 +68,7 @@
                             </li>
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default">Profile</a>
+                                    <a href="<?= site_url('Users') ?>" class="btn btn-default">Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="<?= site_url('Auth/logout') ?>" class="btn btn-danger">Sign out</a>

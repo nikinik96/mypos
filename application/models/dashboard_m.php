@@ -21,10 +21,11 @@ class dashboard_m extends CI_Model
         $count = $query->num_rows();
         return $count;
     }
-    // public function get_suppliers()
-    // {
-    //     $query = $this->db->query("SELECT * FROM suppliers");
-    //     $count = $query->num_rows();
-    //     return $count;
-    // }
+
+    public function get_suppliers()
+    {
+        $query = $this->db->query("SELECT * FROM supplier");
+        $count = $query->num_rows();
+        return $count;
+    }
 }
