@@ -11,7 +11,11 @@
         <li>
             Product
         </li>
-        <li class="active">Categories</li>
+        <li>
+            <a href="<?= site_url('Categories') ?>"></a>
+            Categories
+        </li>
+        <li class="active">Add</li>
     </ol>
 </section>
 
@@ -21,7 +25,7 @@
             <h4>
                 Add Categories
                 <div class="pull-right">
-                    <a href="<?= site_url('Items') ?>" class="btn btn-warning">
+                    <a href="<?= site_url('Categories') ?>" class="btn btn-warning">
                         <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -30,7 +34,7 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
-                    <form action="<?= site_url('Categories/process') ?>" method="post">
+                    <form action="<?= site_url('Categories/process_add') ?>" method="post">
                         <div class="form-group">
                             <label> Category Name <i class="text-danger">*</i></label>
                             <input type="text" name="name_categories" id="name_categories" class="form-control" placeholder="Categories Name" autocomplete="off" autofocus required>

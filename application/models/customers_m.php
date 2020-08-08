@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+date_default_timezone_set("Asia/Bangkok");
 class customers_m extends CI_Model
 {
     public function get($id = NULL)
@@ -8,7 +8,7 @@ class customers_m extends CI_Model
         $this->db->select('*');
         $this->db->from('customers');
         if ($id != NULL) {
-            $this->db->where('customers_id');
+            $this->db->where('customers_id', $id);
         }
         $post = $this->db->get();
         return $post;
@@ -30,6 +30,19 @@ class customers_m extends CI_Model
         $params['address_customers']    = $post['address_customers'];
 
         $this->db->insert('customers', $params);
+    }
+
+
+    public function edit($post)
+    {
+        $params['name_customers']       = $post['name_customers'];
+        $params['gander_customers']     = $post['gander_customers'];
+        $params['phone_customers']      = $post['phone_customers'];
+        $params['address_customers']    = $post['address_customers'];
+        $params['updated']              = date('Y-m-d H:i:s');
+
+        $this->db->where('customers_id', $post['customers_id']);
+        $this->db->update('customers', $params);
     }
 
     public function del($post)

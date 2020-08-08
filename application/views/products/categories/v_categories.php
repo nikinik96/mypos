@@ -43,7 +43,7 @@
                             <td class="text-center"><?= $no++; ?></td>
                             <td><?= $data->name_categories ?></td>
                             <td class="text-center">
-                                <a href="" class="btn btn-success">
+                                <a href="<?= site_url('Categories/edit/' . $data->categories_id) ?>" class="btn btn-success">
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 <a href="<?= site_url('Categories/del/' . $data->categories_id) ?>" class="btn btn-danger" onclick="return confirm('Data <?= $data->name_categories ?> akan dihapus secara permanen, apakah anda yakin  ?');">

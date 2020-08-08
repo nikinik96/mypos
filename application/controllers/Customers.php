@@ -57,6 +57,12 @@ class Customers extends CI_Controller
             'row' => $data
         ];
 
+        $this->form_validation->set_rules('name_customers', 'Nama Customers', 'trim|required');
+        $this->form_validation->set_rules('customers_id', 'Customers Id', 'trim|required');
+        $this->form_validation->set_rules('gander_customers', 'Gander', 'trim|required');
+        $this->form_validation->set_rules('phone_customers', 'No Tlp', 'trim|required');
+        $this->form_validation->set_rules('address_customers', 'Alamat Costumers', 'trim|required');
+
         if ($this->form_validation->run() == FALSE) {
             $this->template->load('v_template', 'customers/v_customers_edit', $array);
         } else {

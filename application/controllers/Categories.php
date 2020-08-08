@@ -21,7 +21,27 @@ class Categories extends CI_Controller
         $this->template->load('v_template', 'products/categories/v_categories_add');
     }
 
-    public function process()
+    public function edit($id)
+    {
+        $data['row'] = $this->Categories_m->get($id)->row();
+
+        $this->template->load('v_template', 'products/categories/v_categories_edit', $data);
+    }
+
+    public function process_edit()
+    {
+        $post = $this->input->post(NULL, TRUE);
+
+        $this->Categories_m->edit($post);
+
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil disimpan</div>');
+            redirect('Categories');
+        }
+    }
+
+
+    public function process_add()
     {
         $post = $this->input->post(NULL, TRUE);
         $this->Categories_m->add($post);

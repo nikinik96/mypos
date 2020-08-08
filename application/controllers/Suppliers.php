@@ -38,6 +38,29 @@ class Suppliers extends CI_Controller
         }
     }
 
+    public function edit($id)
+    {
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('phone', 'Phone', 'trim|required');
+        $this->form_validation->set_rules('address', 'Address', 'trim|required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['row'] = $this->Suppliers_m->get($id)->row();
+
+            $this->template->load('v_template', 'suppliers/v_suppliers_edit', $data);
+        } else {
+            $post = $this->input->post(NULL, TRUE);
+
+
+            $this->Suppliers_m->edit($post);
+
+            if ($this->db->affected_rows() > 0) {
+                $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil disimpan</div>');
+                redirect('Suppliers');
+            }
+        }
+    }
+
     public function del($id)
     {
         $this->Suppliers_m->del($id);
