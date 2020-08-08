@@ -12,10 +12,11 @@ class Stock_out extends CI_Controller
 
     public function index()
     {
-        $this->template->load('v_template', 'transaksi/stock_out/v_stock_out');
+        $data['row'] = $this->stock_out_m->get()->result();
+        $this->template->load('v_template', 'transaksi/stock_out/v_stock_out', $data);
     }
 
-    public function stock_in_out()
+    public function stock_out()
     {
         $item = $this->item_m->get()->result();
         $item = $this->item_m->get()->result();
@@ -43,6 +44,27 @@ class Stock_out extends CI_Controller
                 $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil disimpan</div>');
                 redirect('Stock_out');
             }
+        }
+    }
+
+    public function del()
+    {
+        $stock_id = $this->uri->segment(3);
+        $item_id  = $this->uri->segment(4);
+
+        $qty      = $this->stock_out_m->get($stock_id)->row()->qty;
+
+        $data     = [
+            'qty'       => $qty,
+            'item_id'   => $item_id
+        ];
+
+        $this->item_m->update_item($data);
+        $this->stock_out_m->del_stock_out($stock_id);
+
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger"><strong>Success!</strong> Data berhasil dihapus</div>');
+            redirect('Stock_out');
         }
     }
 }

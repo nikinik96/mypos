@@ -1,3 +1,7 @@
+<?php
+date_default_timezone_set("Asia/Bangkok");
+?>
+
 <section class="content-header">
     <h1>Sales <small>Penjualan</small></h1>
     <ol class="breadcrumb">

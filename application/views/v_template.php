@@ -161,6 +161,11 @@
                             </li>
                         </ul>
                     </li>
+                    <li <?= $this->uri->segment(1) == "Report" ? 'class="active"' : null ?>>
+                        <a href="<?= site_url('Report') ?>">
+                            <i class="fa fa-line-chart"></i> <span>Report</span>
+                        </a>
+                    </li>
 
                     <li class="header">Users</li>
                     <li <?= $this->uri->segment(1) == "Users" ? 'class="active"' : null  ?>>

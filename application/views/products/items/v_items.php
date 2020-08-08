@@ -55,8 +55,10 @@
                             <td><?= indo_currency($data->harga_beli)  ?></td>
                             <td><?= indo_currency($data->harga_jual)  ?></td>
                             <td class="text-center"><?= $data->stock ?></td>
-                            <td>
-
+                            <td class="text-center">
+                                <a href="<?= site_url('Items/del/' . $data->item_id); ?>" class="btn btn-danger" onclick="return confirm('Data <?= $data->item_name ?> akan dihapus secara permanen, apakah anda yakin  ?');">
+                                    <i class="fa fa-trash"></i>
+                                </a>
                             </td>
                         </tr>
                     <?php } ?>

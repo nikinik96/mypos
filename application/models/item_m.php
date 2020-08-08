@@ -48,6 +48,8 @@ class item_m extends CI_Model
         $sql    = "UPDATE item SET stock = stock + '$qty' WHERE item_id = '$id' ";
         $this->db->query($sql);
     }
+
+
     public function update_stock_out($data)
     {
         $qty    = $data['qty'];
@@ -55,5 +57,26 @@ class item_m extends CI_Model
 
         $sql    = "UPDATE item SET stock = stock - '$qty' WHERE item_id = '$id' ";
         $this->db->query($sql);
+    }
+
+    public function update_item($data)
+    {
+        $qty    = $data['qty'];
+        $id     = $data['item_id'];
+
+        $sql    = "UPDATE item SET stock = stock + '$qty' WHERE item_id = '$id' ";
+        $this->db->query($sql);
+    }
+
+    public function del_stock_out($id)
+    {
+        $this->db->where('item_id', $id);
+        $this->db->delete('stock_out');
+    }
+
+    public function del($id)
+    {
+        $this->db->where('item_id', $id);
+        $this->db->delete('item');
     }
 }

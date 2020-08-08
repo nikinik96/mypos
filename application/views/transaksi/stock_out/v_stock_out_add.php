@@ -1,3 +1,6 @@
+<?php
+date_default_timezone_set("Asia/Bangkok");
+?>
 <section class="content-header">
     <h1>Data Stock Out <small>Stock Out</small></h1>
     <ol class="breadcrumb">
@@ -97,7 +100,7 @@
                             <th class="text-center">#</th>
                             <th class="text-center">Product Name</th>
                             <th class="text-center">Size</th>
-                            <th class="text-center">Price (Rp)</th>
+                            <th class="text-center">Harga Jual (Rp)</th>
                             <th class="text-center">Stock</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -109,7 +112,7 @@
                                 <td><?= $no++; ?></td>
                                 <td><?= $data->item_name ?></td>
                                 <td><?= $data->size ?></td>
-                                <td><?= $data->price ?></td>
+                                <td><?= indo_currency($data->harga_jual) ?></td>
                                 <td class="text-center"><?= $data->stock ?></td>
                                 <td class="text-center">
                                     <button class="btn btn-success btn-sm" id="select" data-item_id="<?= $data->item_id ?>" data-product="<?= $data->item_name ?>" data-item="<?= $data->item_id ?>" data-stock="<?= $data->stock ?>">

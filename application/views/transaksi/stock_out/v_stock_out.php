@@ -21,7 +21,7 @@
         <div class="box-header">
             <h4>Stock Out
                 <div class="pull-right">
-                    <a href="<?= site_url('Stock_out/stock_in_out') ?>" class="btn btn-primary">
+                    <a href="<?= site_url('Stock_out/stock_out') ?>" class="btn btn-primary">
                         <i class="fa fa-plus"></i>
                     </a>
                 </div>
@@ -35,17 +35,28 @@
                         <th class="text-center">Product Name</th>
                         <th class="text-center">Qty</th>
                         <th class="text-center">Date</th>
+                        <th class="text-center">Detail</th>
+                        <th class="text-center">A/N</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php $no = 1; ?>
+                    <?php foreach ($row as $key => $data) { ?>
+                        <tr>
+                            <td class="text-center"><?= $no++; ?></td>
+                            <td><?= $data->item_name ?></td>
+                            <td class="text-center"><?= $data->qty ?></td>
+                            <td class="text-center"><?= indo_date($data->date); ?></td>
+                            <td class="text-center"><?= $data->detail ?></td>
+                            <td class="text-center"><?= $data->name ?></td>
+                            <td class="text-center">
+                                <a href="<?= site_url('Stock_out/del/' . $data->stock_id . '/' . $data->item_id) ?>" class="btn btn-danger" onclick="return confirm('Data <?= $data->item_name ?> akan dihapus secara permanen, apakah anda yakin  ?');">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>

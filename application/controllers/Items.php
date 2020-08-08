@@ -12,7 +12,6 @@ class Items extends CI_Controller
         check_not_login();
     }
 
-
     public function index()
     {
         $data['row'] = $this->item_m->get()->result();
@@ -42,12 +41,19 @@ class Items extends CI_Controller
 
         $this->item_m->add($post);
 
-        // $this->
-
-
-
         if ($this->db->affected_rows() > 0) {
             $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil disimpan</div>');
+            redirect('Items');
+        }
+    }
+
+    public function del($id)
+    {
+        $this->item_m->del_stock_out($id);
+        $this->item_m->del($id);
+
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger"><strong>Success!</strong> Data berhasil dihapus</div>');
             redirect('Items');
         }
     }
