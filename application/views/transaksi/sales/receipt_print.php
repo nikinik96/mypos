@@ -120,7 +120,7 @@
                 </tr>
                 <?php if ($sales->discount > 0) { ?>
                     <tr>
-                        <td colspan="2"></td>
+                        <td colspan=" 2"></td>
                         <td style="text-align: right; padding-bottom: 5px;">Disc. Sale</td>
                         <td style="text-align: right; padding-bottom: 5px;"><?= indo_currency($sales->discount) ?></td>
                     </tr>

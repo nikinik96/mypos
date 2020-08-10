@@ -446,9 +446,6 @@ date_default_timezone_set("Asia/Bangkok");
         total = (price - discount) * qty;
         $('#total_item').val(total);
 
-        if (discount == '') {
-            $('#discount_item').val(0)
-        }
     }
 
     $(document).on('keyup mouseup', '#price_item, #qty_item, #discount_item', function() {
@@ -515,9 +512,6 @@ date_default_timezone_set("Asia/Bangkok");
             $('#grand_total2').text(grand_total)
         }
 
-        if (discount == '') {
-            $('#discount').val(0)
-        }
 
         var cash = $('#cash').val();
         cash != 0 ? $('#change').val(cash - grand_total) : $('#change').val(0);
@@ -567,8 +561,8 @@ date_default_timezone_set("Asia/Bangkok");
                     dataType: 'json',
                     success: function(result) {
                         if (result.success == true) {
-                            swal("Success!", "Transaksi Behasil!", "success");
-                            window.open('<?= site_url('Sales/cetak/') ?>' + result.sales_id, '_blank')
+                            alert('Data Behasil Disimpan');
+                            window.open('<?= site_url('Sales/cetak/') ?>' + result.sales_id, '_blank');
                         } else {
                             swal("Error!", "Transaksi Gagal!", "error");
                         }
