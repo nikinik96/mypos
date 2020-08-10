@@ -31,7 +31,7 @@ date_default_timezone_set("Asia/Bangkok");
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input type="date" name="" id="" value="<?= date('Y-m-d') ?>" class="form-control">
+                                    <input type="date" name="date" id="date" value="<?= date('Y-m-d') ?>" class="form-control">
                                 </div>
                             </td>
                         </tr>
@@ -51,8 +51,9 @@ date_default_timezone_set("Asia/Bangkok");
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <select name="" id="" class="form-control select2" style="width: 100%;">
+                                    <select name="customers_id" id="customers_id" class="form-control select2" style="width: 100%;">
                                         <option value="">-- Pilih --</option>
+                                        <option value="CUST_0001">Not Found</option>
                                     </select>
                                 </div>
                             </td>
@@ -250,6 +251,7 @@ date_default_timezone_set("Asia/Bangkok");
     </div>
 </section>
 
+<!-- Modal  Add Product -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -292,6 +294,53 @@ date_default_timezone_set("Asia/Bangkok");
     </div>
 </div>
 
+
+<!-- Modal  Edit Product -->
+<div class="modal fade" id="modal-item-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Update Product Items</h4>
+            </div>
+            <div class="modal-body table-responsive">
+                <input type="hidden" id="cartid_item">
+                <div class="form-group">
+                    <label for="product_item">Product Item</label>
+                    <input type="text" name="product_item" id="product_item" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="price_item">Price</label>
+                    <input type="number" name="price_item" id="price_item" min="0" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="qty_item">Qty</label>
+                    <input type="number" name="qty_item" id="qty_item" min="1" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="total_before">Total Before Discount</label>
+                    <input type="number" name="total_before" id="total_before" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="discount_item">Discount Per Item</label>
+                    <input type="number" name="discount_item" id="discount_item" min="0" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="total_item">Total After Discount</label>
+                    <input type="number" name="total_item" id="total_item" min="0" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right">
+                    <button type="button" id="edit_cart" class="btn btn-success">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     $(document).ready(function() {
         $(document).on('click', '#select', function() {
@@ -302,6 +351,8 @@ date_default_timezone_set("Asia/Bangkok");
             $('#exampleModal').modal('hide');
         });
     });
+
+
 
     $(document).on('click', '#add_cart', function() {
         var item_id = $('#item_id').val()
@@ -330,6 +381,7 @@ date_default_timezone_set("Asia/Bangkok");
                     if (result.success == true) {
                         $('#cart_table').load('<?= site_url('sales/v_cart_data') ?>', function() {
                             swal("Success!", "Data ditambahkan ke cart!", "success");
+                            calculate()
                         })
                         $('#item_name').val('');
                         $('#item_id').val('');
@@ -358,6 +410,7 @@ date_default_timezone_set("Asia/Bangkok");
                     if (result.success == true) {
                         $('#cart_table').load('<?= site_url('sales/v_cart_data') ?>', function() {
                             swal("Success!", "Data berhasil dihapus!", "success");
+                            calculate()
                         })
                     } else {
                         swal("Success!", "Data gagal dihapus!", "success");
@@ -368,4 +421,161 @@ date_default_timezone_set("Asia/Bangkok");
             swal("Error!", "Data gagal dihapus!", "error");
         }
     })
+
+    // Update On click with Id
+    $(document).ready(function() {
+        $(document).on('click', '#update_cart', function() {
+            $('#cartid_item').val($(this).data('cartid'));
+            $('#product_item').val($(this).data('item_name'));
+            $('#price_item').val($(this).data('price'));
+            $('#qty_item').val($(this).data('qty'));
+            $('#total_before').val($(this).data('price') * $(this).data('qty'));
+            $('#discount_item').val($(this).data('discount_item'));
+            $('#total_item').val($(this).data('total'));
+        });
+    });
+
+    function count_edit_modal() {
+        var price = $('#price_item').val();
+        var qty = $('#qty_item').val();
+        var discount = $('#discount_item').val();
+
+        total_before = price * qty;
+        $('#total_before').val(total_before);
+
+        total = (price - discount) * qty;
+        $('#total_item').val(total);
+
+        if (discount == '') {
+            $('#discount_item').val(0)
+        }
+    }
+
+    $(document).on('keyup mouseup', '#price_item, #qty_item, #discount_item', function() {
+        count_edit_modal();
+    })
+
+    $(document).on('click', '#edit_cart', function() {
+        var cart_id = $('#cartid_item').val()
+        var price = $('#price_item').val()
+        var qty = $('#qty_item').val()
+        var discount = $('#discount_item').val()
+        var total = $('#total_item').val()
+
+        if (price == '') {
+            swal("Error!", "Harga Tidak Boleh Kosong!", "error");
+            $('#price_item').focus();
+        } else if (qty == '' || qty < 1) {
+            swal("Error!", "Qty Tidak Boleh Kosong!", "error");
+            $('#qty_item').focus();
+        } else {
+            $.ajax({
+                type: 'POST',
+                url: '<?= site_url('Sales/process') ?>',
+                data: {
+                    'edit_cart': true,
+                    'cart_id': cart_id,
+                    'price': price,
+                    'qty': qty,
+                    'discount': discount,
+                    'total': total
+                },
+                dataType: 'json',
+                success: function(result) {
+                    if (result.success == true) {
+                        $('#cart_table').load('<?= site_url('sales/v_cart_data') ?>', function() {
+                            swal("Success!", "Data Item Berhasil Di Update ke cart!", "success");
+                            calculate()
+                        })
+                        $('#modal-item-edit').modal('hide');
+                    } else {
+                        swal("Error!", "Data Item Cart Gagal di Update!", "error");
+                    }
+                }
+            })
+        }
+    });
+
+    function calculate() {
+        var subtotal = 0;
+
+        $('#cart_table tr').each(function() {
+            subtotal += parseInt($(this).find('#total').text())
+        })
+        isNaN(subtotal) ? $('#sub_total').val(0) : $('#sub_total').val(subtotal)
+
+        var discount = $('#discount').val()
+        var grand_total = subtotal - discount
+
+        if (isNaN(grand_total)) {
+            $('#grand_total').val(0)
+            $('#grand_total2').text(0)
+        } else {
+            $('#grand_total').val(grand_total)
+            $('#grand_total2').text(grand_total)
+        }
+
+        if (discount == '') {
+            $('#discount').val(0)
+        }
+
+        var cash = $('#cash').val();
+        cash != 0 ? $('#change').val(cash - grand_total) : $('#change').val(0);
+    }
+
+    $(document).on('keyup mouseup', '#discount, #cash', function() {
+        calculate();
+    })
+
+    $(document).ready(function() {
+        calculate()
+    })
+
+    // Proses payment
+
+    $(document).on('click', '#process_payment', function() {
+        var customers_id = $('#customers_id').val()
+        var subtotal = $('#sub_total').val()
+        var discount = $('#discount').val()
+        var grandtotal = $('#grand_total').val()
+        var cash = $('#cash').val()
+        var change = $('#change').val()
+        var note = $('#note').val()
+        var date = $('#date').val()
+
+        if (subtotal < 1) {
+            swal("Error!", "Belum Ada Product Item Yang Dipilih!", "error");
+        } else if (cash < 1) {
+            swal("Error!", "Jumlah Uang Cash Belum Diinput!", "error");
+            $('#cash').focus();
+        } else {
+            if (confirm('Yakin Proses transaksi Ini ?')) {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?= site_url('Sales/process') ?>',
+                    data: {
+                        'process_payment': true,
+                        'customers_id': customers_id,
+                        'subtotal': subtotal,
+                        'discount': discount,
+                        'grandtotal': grandtotal,
+                        'cash': cash,
+                        'change': change,
+                        'note': note,
+                        'date': date
+                    },
+                    dataType: 'json',
+                    success: function(result) {
+                        if (result.success == true) {
+                            swal("Success!", "Transaksi Behasil!", "success");
+                            window.open('<?= site_url('Sales/cetak/') ?>' + result.sales_id, '_blank')
+                        } else {
+                            swal("Error!", "Transaksi Gagal!", "error");
+                        }
+                        location.href = '<?= site_url('Sales') ?>'
+                    }
+                })
+            }
+        }
+    });
 </script>

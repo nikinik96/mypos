@@ -6,8 +6,8 @@
             <td><?= $data->item_name ?></td>
             <td><?= indo_currency($data->cart_price)  ?></td>
             <td class="text-center"><?= $data->qty ?></td>
-            <td><?= $data->discount_item ?></td>
-            <td><?= indo_currency($data->total) ?></td>
+            <td><?= indo_currency($data->discount_item) ?></td>
+            <td id="total"><?= $data->total ?></td>
             <td class="text-center">
                 <button id="update_cart" data-toggle="modal" data-target="#modal-item-edit" data-cartid="<?= $data->cart_id ?>" data-item_name="<?= $data->item_name ?>" data-price="<?= $data->price ?>" data-qty="<?= $data->qty ?>" data-discount_item="<?= $data->discount_item ?>" data-total="<?= $data->total ?>" class="btn btn-primary">
                     <i class="fa fa-edit"></i>
