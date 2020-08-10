@@ -24,11 +24,11 @@ class Sales extends CI_Controller
         $this->template->load('v_template', 'transaksi/sales/v_sales', $data);
     }
 
-    public function cart_data()
+    public function v_cart_data()
     {
         $cart = $this->sales_m->get_cart();
         $data['cart'] = $cart;
-        $this->load->view('transaksi/sales/cart_data', $data);
+        $this->load->view('transaksi/sales/v_cart_data', $data);
     }
 
     public function process()

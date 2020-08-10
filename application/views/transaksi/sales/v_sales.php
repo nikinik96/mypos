@@ -276,10 +276,10 @@ date_default_timezone_set("Asia/Bangkok");
                                 <td><?= $no++; ?></td>
                                 <td><?= $data->item_name ?></td>
                                 <td><?= $data->size ?></td>
-                                <td><?= $data->price ?></td>
+                                <td><?= indo_currency($data->harga_jual)  ?></td>
                                 <td class="text-center"><?= $data->stock ?></td>
                                 <td class="text-center">
-                                    <button class="btn btn-success btn-sm" id="select" data-item_name="<?= $data->item_name ?>" data-price="<?= $data->price ?>" data-item_id="<?= $data->item_id ?>" data-product="<?= $data->item_name ?>" data-item="<?= $data->item_id ?>" data-stock="<?= $data->stock ?>">
+                                    <button class="btn btn-success btn-sm" id="select" data-item_name="<?= $data->item_name ?>" data-price="<?= $data->harga_jual ?>" data-item_id="<?= $data->item_id ?>" data-product="<?= $data->item_name ?>" data-item="<?= $data->item_id ?>" data-stock="<?= $data->stock ?>">
                                         <i class="fa fa-check"></i>
                                     </button>
                                 </td>
