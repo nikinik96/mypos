@@ -34,7 +34,7 @@
                         <div class="inner">
                             <h3><?= $items ?></h3>
 
-                            <p>Items</p>
+                            <p>Jumlah Items</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-shopping-cart"></i>
@@ -46,7 +46,7 @@
                         <div class="inner">
                             <h3><?= $items ?></h3>
 
-                            <p>Total Pemasukan</p>
+                            <p>Jumlah Customers</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-users"></i>
@@ -58,10 +58,10 @@
                         <div class="inner">
                             <h3><?= indo_currency($pengeluaran) ?></h3>
 
-                            <p>Total Pengeluaran</p>
+                            <p>Jumlah Suppliers</p>
                         </div>
                         <div class="icon">
-                            <i class="fa fa-dollar"></i>
+                            <i class="fa fa-truck"></i>
                         </div>
                     </div>
                 </div>
