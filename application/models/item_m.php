@@ -8,6 +8,7 @@ class item_m extends CI_Model
         $this->db->select('*');
         $this->db->from('item');
         $this->db->join('categories', 'categories.categories_id = item.categories_id');
+        $this->db->join('supplier', 'supplier.supplier_id = item.supplier_id', 'LEFT');
         if ($id != NULL) {
             $this->db->where('item_id');
         }
@@ -28,9 +29,9 @@ class item_m extends CI_Model
 
             $params['item_name']       = $post['item_name_' . $i];
             $params['categories_id']   = $post['categories_id_' . $i];
-            $params['units_id']        = $post['units_id_' . $i];
             $params['harga_beli']      = $post['harga_beli_' . $i];
             $params['harga_jual']      = $post['harga_jual_' . $i];
+            $params['supplier_id']     = $post['supplier_id_' . $i];
             $params['size']            = $post['size_' . $i];
             $params['stock']           = $post['stock_' . $i];
             $params['grand_total']     = $post['harga_beli_' . $i] * $post['stock_' . $i];

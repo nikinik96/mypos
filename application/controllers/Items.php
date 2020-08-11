@@ -7,7 +7,7 @@ class Items extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['units_m', 'categories_m', 'item_m']);
+        $this->load->model(['categories_m', 'item_m', 'Suppliers_m']);
         $this->load->library('form_validation');
         check_not_login();
     }
@@ -24,12 +24,12 @@ class Items extends CI_Controller
         $data = $this->input->post(NULL, TRUE);
 
         $jml_product = $data['jml_product'];
-        $units       = $this->units_m->get()->result();
         $categories  = $this->categories_m->get()->result();
+        $suppliers   = $this->Suppliers_m->get()->result();
 
         $data = [
-            'units' => $units,
             'categories' => $categories,
+            'suppliers'  => $suppliers,
             'jml_product' => $jml_product
         ];
         $this->template->load('v_template', 'products/items/v_items_add', $data);

@@ -8,18 +8,20 @@ class Sales extends CI_Controller
     {
         parent::__construct();
         check_not_login();
-        $this->load->model(['sales_m', 'item_m']);
+        $this->load->model(['sales_m', 'item_m', 'Customers_m']);
     }
 
     public function index()
     {
         $item = $this->item_m->get()->result();
         $cart = $this->sales_m->get_cart();
+        $customers = $this->Customers_m->get()->result();
 
         $data = [
-            'item'    => $item,
-            'cart'    => $cart,
-            'invoice' => $this->sales_m->invoice_no(),
+            'item'      => $item,
+            'cart'      => $cart,
+            'customers' => $customers,
+            'invoice'   => $this->sales_m->invoice_no(),
         ];
 
         $this->template->load('v_template', 'transaksi/sales/v_sales', $data);

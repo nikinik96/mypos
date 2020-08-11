@@ -14,12 +14,14 @@ class Dashboard extends CI_Controller
     {
         $items              = $this->dashboard_m->get_items();
         $suppliers          = $this->dashboard_m->get_suppliers();
-        $pengeluaran        = $this->dashboard_m->get_pengeluaran();
+        $customers          = $this->dashboard_m->get_customers();
+        $penjualan_hariini  = $this->dashboard_m->get_penjualan_hariini();
 
         $data = [
             'items'         => $items,
             'suppliers'     => $suppliers,
-            'pengeluaran'   => $pengeluaran
+            'customers'     => $customers,
+            'penjualan'     => $penjualan_hariini
         ];
 
         $this->template->load('v_template', 'v_dashboard', $data);

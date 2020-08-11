@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group <?= form_error('name_customers') == TRUE ? 'has-error' : null ?>">
                             <label for="name_customers">Nama Customers <i class="text-danger">*</i></label>
-                            <input type="text" name="name_customers" id="name_customers" class="form-control" value="<?= $this->input->post('name_customers') ?? $row->name_customers ?>" placeholder="Nama Customers" autocomplete="off" autofocus="true">
+                            <input type="text" name="name_customers" id="name_customers" class="form-control" value="<?= $this->input->post('name_customers') ?? $row->name_customers ?>" placeholder="Nama Customers" autocomplete="off">
                             <?= form_error('name_customers', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group <?= form_error('gander_customers') == TRUE ? 'has-error' : null ?>">

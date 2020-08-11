@@ -20,7 +20,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3><?= $penjualan ?></h3>
 
                             <p>Penjualan Hariini</p>
                         </div>
@@ -44,7 +44,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3><?= $items ?></h3>
+                            <h3><?= $customers ?></h3>
 
                             <p>Jumlah Customers</p>
                         </div>
@@ -56,7 +56,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3><?= indo_currency($pengeluaran) ?></h3>
+                            <h3><?= $suppliers ?></h3>
 
                             <p>Jumlah Suppliers</p>
                         </div>
