@@ -62,12 +62,13 @@
                             <?= form_error('stock', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group">
-                            <label for="">Supplier <i class="text-danger">*</i></label>
-                            <select name="supplier_id" id="supplier_id" class="form-control select2" style="width: 100%;">
+                            <label for="">Suppliers</label>
+                            <select name="supplier_id" id="supplier_id" class="form-control select2" style="width: 100%;" required>
                                 <option value="">-- Pilih --</option>
-                                <option value="4">NoN</option>
+                                <?php foreach ($suppliers as $key => $data) { ?>
+                                    <option value="<?= $data->supplier_id ?>"><?= $data->name ?></option>
+                                <?php } ?>
                             </select>
-                            <?= form_error('supplier_id', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group">
                             <label for="">Qty <i class="text-danger">*</i></label>

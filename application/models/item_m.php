@@ -34,8 +34,6 @@ class item_m extends CI_Model
             $params['supplier_id']     = $post['supplier_id_' . $i];
             $params['size']            = $post['size_' . $i];
             $params['stock']           = $post['stock_' . $i];
-            $params['grand_total']     = $post['harga_beli_' . $i] * $post['stock_' . $i];
-
 
             $this->db->insert('item', $params);
         }
@@ -66,6 +64,15 @@ class item_m extends CI_Model
         $id     = $data['item_id'];
 
         $sql    = "UPDATE item SET stock = stock + '$qty' WHERE item_id = '$id' ";
+        $this->db->query($sql);
+    }
+
+    public function delete_stock_in($data)
+    {
+        $qty    = $data['qty'];
+        $id     = $data['item_id'];
+
+        $sql    = "UPDATE item SET stock = stock - '$qty' WHERE item_id = '$id' ";
         $this->db->query($sql);
     }
 

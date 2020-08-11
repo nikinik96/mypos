@@ -6,7 +6,7 @@ class dashboard_m extends CI_Model
     public function get_penjualan_hariini()
     {
         $date  = date('Y-m-d');
-        $query = $this->db->query("SELECT * FROM sales_detail JOIN sales ON sales.sales_id = sales_detail.sale_id WHERE sales.date = '$date'  ");
+        $query = $this->db->query("SELECT * FROM sales_detail JOIN sales ON sales.sale_id = sales_detail.sale_id WHERE sales.date = '$date'  ");
         $count = $query->num_rows();
         return $count;
     }

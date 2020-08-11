@@ -154,6 +154,11 @@
                                     <i class="fa fa-circle-o text-danger"></i> Sales
                                 </a>
                             </li>
+                            <li <?= $this->uri->segment(1) == "Stock_in" ? 'class="active"' : null ?>>
+                                <a href="<?= site_url('Stock_in'); ?>">
+                                    <i class="fa fa-circle-o"></i> Stock In
+                                </a>
+                            </li>
                             <li <?= $this->uri->segment(1) == "Stock_out" ? 'class="active"' : null ?>>
                                 <a href="<?= site_url('Stock_out'); ?>">
                                     <i class="fa fa-circle-o"></i> Stock Out
