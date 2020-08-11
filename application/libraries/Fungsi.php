@@ -17,12 +17,12 @@ class Fungsi
         return $user_data;
     }
 
-    function PdfGenerator($html, $filename, $paper, $orientation)
+    function PdfGenerator($html, $filename, $paper)
     {
         $dompdf = new Dompdf\Dompdf();
         $dompdf->loadHtml($html);
         // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('$paper', '$orientation');
+        $dompdf->setPaper('$paper', 'landscape');
         // Render the HTML as PDF
         $dompdf->render();
         // Output the generated PDF to Browser
