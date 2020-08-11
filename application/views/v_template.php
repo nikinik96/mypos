@@ -167,7 +167,7 @@
                         </ul>
                     </li>
 
-                    <li class="treeview">
+                    <li class="treeview <?= $this->uri->segment(1) == "Lap_pengeluaran" ? 'active' : null ?>">
                         <a href="#">
                             <i class="fa fa-line-chart"></i>
                             <span>Report</span>
@@ -176,8 +176,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li <?= $this->uri->segment(1) == "" ? 'class="active"' : null ?>>
-                                <a href="<?= site_url('') ?>">
+                            <li <?= $this->uri->segment(1) == "Lap_pengeluaran" ? 'class="active"' : null ?>>
+                                <a href="<?= site_url('Lap_pengeluaran') ?>">
                                     <i class="fa fa-circle-o text-red"></i> <span>Lap Pengeluaran</span>
                                 </a>
                             </li>
