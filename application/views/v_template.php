@@ -161,10 +161,28 @@
                             </li>
                         </ul>
                     </li>
-                    <li <?= $this->uri->segment(1) == "Report" ? 'class="active"' : null ?>>
-                        <a href="<?= site_url('Report') ?>">
-                            <i class="fa fa-line-chart"></i> <span>Report</span>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-line-chart"></i>
+                            <span>Report</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
                         </a>
+                        <ul class="treeview-menu">
+                            <li <?= $this->uri->segment(1) == "" ? 'class="active"' : null ?>>
+                                <a href="<?= site_url('') ?>">
+                                    <i class="fa fa-circle-o text-red"></i> <span>Lap Pengeluaran</span>
+                                </a>
+                            </li>
+
+                            <li <?= $this->uri->segment(1) == "Report" ? 'class="active"' : null ?>>
+                                <a href="<?= site_url('Report') ?>">
+                                    <i class="fa fa-circle-o text-success"></i> <span>Lap Penjualan</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="header">Users</li>
