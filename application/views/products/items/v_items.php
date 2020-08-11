@@ -50,7 +50,7 @@
                             <td><?= $no++; ?></td>
                             <td><?= $data->item_name ?></td>
                             <td><?= $data->name_categories ?></td>
-                            <td class="text-center"><?= $data->units_id ?></td>
+                            <td class="text-center"><?= $data->name ?></td>
                             <td class="text-center"><?= $data->size ?></td>
                             <td><?= indo_currency($data->harga_beli)  ?></td>
                             <td><?= indo_currency($data->harga_jual)  ?></td>

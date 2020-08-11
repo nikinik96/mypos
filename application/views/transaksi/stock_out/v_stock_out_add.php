@@ -66,7 +66,7 @@ date_default_timezone_set("Asia/Bangkok");
                         </div>
                         <div class="form-group">
                             <label for="">Qty <i class="text-danger">*</i></label>
-                            <input type="number" name="qty" id="qty" class="form-control" autocomplete="off" placeholder="Qty Barang">
+                            <input type="number" name="qty" id="qty" class="form-control" autocomplete="off" placeholder="Qty Barang Hilang/Rusak/Reject">
                             <?= form_error('qty', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group">

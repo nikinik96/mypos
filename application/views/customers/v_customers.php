@@ -42,7 +42,7 @@
                     <?php foreach ($row as $key => $data) { ?>
                         <tr>
                             <td class="text-center"><?= $no++; ?></td>
-                            <td class="text-center"><?= $data->customers_id ?></td>
+                            <td class="text-center"><?= $data->customers_uniq ?></td>
                             <td><?= $data->name_customers ?></td>
                             <td class="text-center"><?= $data->phone_customers ?></td>
                             <td class="text-center"><?= $data->gander_customers == 1 ? 'Laki-Laki' : 'Perempuan' ?></td>

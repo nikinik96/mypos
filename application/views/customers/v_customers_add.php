@@ -32,8 +32,8 @@
                     <form action="" method="POST">
                         <div class="form-group">
                             <label for="">Customers ID <i class="text-danger">*</i></label>
-                            <input type="text" name="customers_id" id="customers_id" class="form-control" placeholder="Customers ID" value="CUST_<?= sprintf("%04s", $row) ?>" readonly="true">
-                            <?= form_error('customers_id', '<div class="text-danger">', '</div>'); ?>
+                            <input type="text" name="customers_uniq" id="customers_uniq" class="form-control" placeholder="Customers ID" value="Cust_<?= sprintf("%04s", $row) ?>" readonly="true">
+                            <?= form_error('customers_uniq', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group <?= form_error('name_customers') == TRUE ? 'has-error' : null ?>">
                             <label for="name_customers">Nama Customers <i class="text-danger">*</i></label>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group <?= form_error('gander_customers') == TRUE ? 'has-error' : null ?>">
                             <label for="gander_customers">Jenis Kelamin <i class="text-danger">*</i></label>
-                            <select name="gander_customers" id="gander_customers" class="form-control">
+                            <select name="gander_customers" id="gander_customers" class="form-control select2" style="width: 100%;">
                                 <option value="">-- Pilih --</option>
                                 <option value="1">Laki-Laki</option>
                                 <option value="2">Perempuan</option>

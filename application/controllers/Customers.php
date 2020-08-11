@@ -29,7 +29,7 @@ class Customers extends CI_Controller
         );
 
         $this->form_validation->set_rules('name_customers', 'Nama Customers', 'trim|required');
-        $this->form_validation->set_rules('customers_id', 'Customers Id', 'trim|required|is_unique[customers.customers_id]');
+        // $this->form_validation->set_rules('customers_id', 'Customers Id', 'trim|required|is_unique[customers.customers_uniq]');
         $this->form_validation->set_rules('gander_customers', 'Gander', 'trim|required');
         $this->form_validation->set_rules('phone_customers', 'No Tlp', 'trim|required');
         $this->form_validation->set_rules('address_customers', 'Alamat Costumers', 'trim|required');
@@ -58,7 +58,7 @@ class Customers extends CI_Controller
         ];
 
         $this->form_validation->set_rules('name_customers', 'Nama Customers', 'trim|required');
-        $this->form_validation->set_rules('customers_id', 'Customers Id', 'trim|required');
+        $this->form_validation->set_rules('customers_uniq', 'Customers Uniq', 'trim|required');
         $this->form_validation->set_rules('gander_customers', 'Gander', 'trim|required');
         $this->form_validation->set_rules('phone_customers', 'No Tlp', 'trim|required');
         $this->form_validation->set_rules('address_customers', 'Alamat Costumers', 'trim|required');

@@ -16,14 +16,14 @@ class customers_m extends CI_Model
 
     public function ai_code()
     {
-        $query = $this->db->query("SELECT MAX(customers_id) as customers_id from customers");
+        $query = $this->db->query("SELECT MAX(customers_uniq) as customers_uniq from customers");
         $hasil = $query->row();
-        return $hasil->customers_id;
+        return $hasil->customers_uniq;
     }
 
     public function add($post)
     {
-        $params['customers_id']         = $post['customers_id'];
+        $params['customers_uniq']       = $post['customers_uniq'];
         $params['name_customers']       = $post['name_customers'];
         $params['gander_customers']     = $post['gander_customers'];
         $params['phone_customers']      = $post['phone_customers'];

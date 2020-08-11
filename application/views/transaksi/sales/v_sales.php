@@ -53,7 +53,9 @@ date_default_timezone_set("Asia/Bangkok");
                                 <div class="form-group">
                                     <select name="customers_id" id="customers_id" class="form-control select2" style="width: 100%;">
                                         <option value="">-- Pilih --</option>
-                                        <option value="CUST_0001">Not Found</option>
+                                        <?php foreach ($customers as $key => $data) { ?>
+                                            <option value="<?= $data->customers_id ?>"><?= $data->name_customers ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </td>

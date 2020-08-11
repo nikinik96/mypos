@@ -52,6 +52,15 @@
                                 <label for="item_name">Product Name <i class="text-danger">*</i></label>
                                 <input type="text" name="item_name_<?= $i ?>" id="item_name" class="form-control" placeholder="Product Name" autocomplete="off" required>
                             </div>
+                            <div class="form-group">
+                                <label for="">Suppliers</label>
+                                <select name="supplier_id_<?= $i ?>" id="supplier_id_<?= $i ?>" class="form-control select2" style="width: 100%;" required>
+                                    <option value="">-- Pilih --</option>
+                                    <?php foreach ($suppliers as $key => $data) { ?>
+                                        <option value="<?= $data->supplier_id ?>"><?= $data->name ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
                             <div>
                                 <label for="price">Harga Beli <i class="text-danger">*</i></label>
                             </div>
@@ -75,9 +84,6 @@
                                     <option value="XXL">XXL</option>
                                     <option value="XXXL">XXXL</option>
                                 </select>
-                            </div>
-                            <div class="form-group ">
-                                <input type="hidden" readonly name="units_id_<?= $i ?>" id="units_id" value="1" class="form-control" required>
                             </div>
                             <div>
                                 <label for="harga_jual">Harga Jual <i class="text-danger">*</i></label>
