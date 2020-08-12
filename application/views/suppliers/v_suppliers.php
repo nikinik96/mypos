@@ -29,7 +29,7 @@
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th class="text-center">Nama Toko</th>
+                        <th class="text-center">Nama Toko a</th>
                         <th class="text-center">Tlp</th>
                         <th class="text-center">Alamat</th>
                         <th class="text-center">Action</th>

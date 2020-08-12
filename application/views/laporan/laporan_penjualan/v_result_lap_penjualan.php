@@ -13,7 +13,7 @@ date_default_timezone_set("Asia/Bangkok");
 
 <body>
     <div class="text-center">
-        <h3>Laporan Penjualan</h3>
+        <h3>Laporan Penjualan a</h3>
         <h5>Filter : <?= indo_date($start) ?> s/d <?= indo_date($end) ?></h5>
     </div>
     <hr style="width: 40%;">
