@@ -18,32 +18,54 @@
 <section class="content">
     <div class="box">
         <div class="box-header">
-            <h4>Data Laporan Pengeluaran</h4>
+            <h4>Data Laporan Pengeluaran
+                <div class="pull-right">
+                    <button type="button" class="btn btn-warning cetak" data-toggle="modal" title="Cetak"><i class="glyphicon glyphicon-print"></i></button>
+                </div>
+            </h4>
         </div>
         <div class="box-body table-responsive">
             <table class="table table-bordered table-striped" id="mytable">
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
+                        <th class="text-center">Category</th>
                         <th class="text-center">Product Name</th>
                         <th class="text-center">Size</th>
                         <th class="text-center">Harga Beli</th>
                         <th class="text-center">Qty</th>
+                        <th class="text-center">Tgl Beli</th>
+                        <th class="text-center">Supplier</th>
+                        <th class="text-center">Grand Total</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php $no = 1 ?>
+                    <?php foreach ($row as $key => $data) { ?>
+                        <tr>
+                            <td style="text-align: center;"><?= $no++ ?></td>
+                            <td><?= $data->name_categories ?></td>
+                            <td><?= $data->item_name ?></td>
+                            <td style="text-align: center;"><?= $data->size ?></td>
+                            <td><?= indo_currency($data->harga_beli)  ?></td>
+                            <td style="text-align: center;"><?= $data->stock ?></td>
+                            <td class="text-center"><?= $data->tgl_pembelian  ?></td>
+                            <td class="text-center"><?= $data->name  ?></td>
+                            <td class="text-left"><?= indo_currency($data->harga_beli * $data->stock); ?></td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
                 <tfoot>
-                    <td colspan="5" class="text-center">
-                        <button type="button" class="btn btn-warning cetak" data-toggle="modal" title="Cetak"><i class="glyphicon glyphicon-print"></i></button>
-                    </td>
+                    <tr>
+                        <td colspan="8" class="text-right">
+                            <b>Grand Total</b>
+                        </td>
+                        <td colspan="1" class="text-left">
+                            <?php foreach ($row_total as $key => $data) { ?>
+                                <?= indo_currency($row_total->grand_total) ?>
+                            <?php } ?>
+                        </td>
+                    </tr>
                 </tfoot>
             </table>
         </div>
@@ -70,7 +92,7 @@
                     </div>
                     <hr style="border: none;border-bottom: 1px solid black;width: 80%;">
                     <div class="text-center">
-                        <button type="button" class="btn btn-danger " data-toggle="tooltip" title="Back" onClick="refreshPage()" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></button>
+                        <button type="submit" class="btn btn-danger " data-toggle="tooltip" title="Back" onclick="refreshPage()" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></button>
                         <button class="btn btn-primary" type="submit" name="submit" value="proses" data-toggle="tooltip" title="Print" onclick="return valid();"><i class="glyphicon glyphicon-print"></i></button>
                     </div>
                 </form>
