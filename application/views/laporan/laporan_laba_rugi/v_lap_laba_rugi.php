@@ -18,7 +18,7 @@
 <section class="content">
     <div class="box box-primary">
         <div class="box-header">
-            <h4>Data Laporan Laba Rugia
+            <h4>Data Laporan Laba Rugi
             </h4>
         </div>
         <div class="box-body" style="padding-bottom: 50px;">

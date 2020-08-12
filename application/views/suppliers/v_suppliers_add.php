@@ -34,7 +34,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <form action="" method="POST">
                         <div class="form-group <?= form_error('name') == TRUE ? 'has-error' : null ?>">
-                            <label for="name">Nama Toko a <i class="text-danger">*</i></label>
+                            <label for="name">Nama Toko <i class="text-danger">*</i></label>
                             <input type="text" name="name" id="name" class="form-control" autocomplete="off" autofocus placeholder="Nama Toko">
                             <?= form_error('name', '<div class="text-danger">', '</div>'); ?>
                         </div>

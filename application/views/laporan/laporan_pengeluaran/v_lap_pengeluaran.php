@@ -18,7 +18,7 @@
 <section class="content">
     <div class="box box-danger">
         <div class="box-header">
-            <h4>Data Laporan Pengeluaran a
+            <h4>Data Laporan Pengeluaran
                 <div class="pull-right">
                     <button type="button" class="btn btn-warning cetak" data-toggle="modal" title="Cetak"><i class="glyphicon glyphicon-print"></i></button>
                 </div>
