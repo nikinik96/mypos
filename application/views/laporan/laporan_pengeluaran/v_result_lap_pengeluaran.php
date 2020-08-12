@@ -12,8 +12,13 @@ date_default_timezone_set("Asia/Bangkok");
 </head>
 
 <body>
-    <h3 class="text-center">Laporan Pengeluaran</h3>
+    <div class="text-center">
+        <h3>Laporan Pengeluaran</h3>
+        <h5>Filter : <?= indo_date($start) ?> s/d <?= indo_date($end) ?></h5>
+    </div>
     <hr style="width: 40%;">
+    <b style="text-align: center;"> </b>
+    <br>
     Print On : <?= date('Y-m-d H:i:s'); ?>
 
     <table class=" table table-striped table-bordered" style="padding-top: 10px;">
