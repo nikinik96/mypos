@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Blank Page</title>
+    <title>My Pos | Main Page</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="<?= base_url('assets') ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url('assets') ?>/bower_components/font-awesome/css/font-awesome.min.css">
@@ -167,7 +167,7 @@
                         </ul>
                     </li>
 
-                    <li class="treeview <?= $this->uri->segment(1) == "Lap_pengeluaran" ? 'active' : null ?>">
+                    <li class="treeview <?= $this->uri->segment(1) == "Lap_laba_rugi" || $this->uri->segment(1) == "Lap_pengeluaran" || $this->uri->segment(1) == "Lap_penjualan" ? 'active' : null ?>">
                         <a href="#">
                             <i class="fa fa-line-chart"></i>
                             <span>Report</span>
@@ -176,15 +176,19 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
+                            <li <?= $this->uri->segment(1) == "Lap_penjualan" ? 'class="active"' : null ?>>
+                                <a href="<?= site_url('Lap_penjualan') ?>">
+                                    <i class="fa fa-circle-o text-success"></i> <span>Lap Penjualan</span>
+                                </a>
+                            </li>
                             <li <?= $this->uri->segment(1) == "Lap_pengeluaran" ? 'class="active"' : null ?>>
                                 <a href="<?= site_url('Lap_pengeluaran') ?>">
                                     <i class="fa fa-circle-o text-red"></i> <span>Lap Pengeluaran</span>
                                 </a>
                             </li>
-
-                            <li <?= $this->uri->segment(1) == "Report" ? 'class="active"' : null ?>>
-                                <a href="<?= site_url('Report') ?>">
-                                    <i class="fa fa-circle-o text-success"></i> <span>Lap Penjualan</span>
+                            <li <?= $this->uri->segment(1) == "Lap_laba_rugi" ? 'class="active"' : null ?>>
+                                <a href="<?= site_url('Lap_laba_rugi') ?>">
+                                    <i class="fa fa-circle-o"></i> <span>Lap Labar Rugi</span>
                                 </a>
                             </li>
                         </ul>

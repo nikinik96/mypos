@@ -28,6 +28,7 @@ class Lap_pengeluaran extends CI_Controller
         $post   = $this->input->post(NULL, TRUE);
         $start  = $post['start'];
         $end    = $post['end'];
+        $tgl    = date('Y-m-d');
 
         $row         = $this->Laporan_pengeluaran_m->get($post)->result();
         $row_total   = $this->Laporan_pengeluaran_m->get_total($post)->row();
@@ -40,6 +41,6 @@ class Lap_pengeluaran extends CI_Controller
         ];
 
         $html = $this->load->view('laporan/laporan_pengeluaran/v_result_lap_pengeluaran', $data, true);
-        $this->fungsi->PdfGenerator($html, 'Lap_pengeluaran', 'A4', 'landscape');
+        $this->fungsi->PdfGenerator($html, 'Lap_pengeluaran_' . $tgl, 'A4', 'landscape');
     }
 }

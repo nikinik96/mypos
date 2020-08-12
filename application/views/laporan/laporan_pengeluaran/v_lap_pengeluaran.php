@@ -16,7 +16,7 @@
 </section>
 
 <section class="content">
-    <div class="box">
+    <div class="box box-danger">
         <div class="box-header">
             <h4>Data Laporan Pengeluaran
                 <div class="pull-right">
@@ -47,11 +47,11 @@
                             <td><?= $data->name_categories ?></td>
                             <td><?= $data->item_name ?></td>
                             <td style="text-align: center;"><?= $data->size ?></td>
-                            <td><?= indo_currency($data->harga_beli)  ?></td>
-                            <td style="text-align: center;"><?= $data->stock ?></td>
+                            <td class="text-right"><?= indo_currency($data->harga_beli)  ?></td>
+                            <td style="text-align: center;"><?= $data->stock_awal ?></td>
                             <td class="text-center"><?= $data->tgl_pembelian  ?></td>
                             <td class="text-center"><?= $data->name  ?></td>
-                            <td class="text-left"><?= indo_currency($data->harga_beli * $data->stock); ?></td>
+                            <td class="text-right"><?= indo_currency($data->harga_beli * $data->stock_awal); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -60,7 +60,7 @@
                         <td colspan="8" class="text-right">
                             <b>Grand Total</b>
                         </td>
-                        <td colspan="1" class="text-left">
+                        <td colspan="1" class="text-right">
                             <?php foreach ($row_total as $key => $data) { ?>
                                 <?= indo_currency($row_total->grand_total) ?>
                             <?php } ?>

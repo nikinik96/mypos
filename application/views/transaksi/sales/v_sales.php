@@ -51,10 +51,10 @@ date_default_timezone_set("Asia/Bangkok");
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <select name="customers_id" id="customers_id" class="form-control select2" style="width: 100%;">
+                                    <select name="customers_id" id="customers_id" class="form-control select2" style="width: 100%;" required>
                                         <option value="">-- Pilih --</option>
                                         <?php foreach ($customers as $key => $data) { ?>
-                                            <option value="<?= $data->customers_id ?>"><?= $data->name_customers ?></option>
+                                            <option value="<?= $data->customers_id ?>" <?= $data->customers_id == 1 ? 'selected' : null ?>><?= $data->name_customers ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -544,6 +544,9 @@ date_default_timezone_set("Asia/Bangkok");
         } else if (cash < 1) {
             swal("Error!", "Jumlah Uang Cash Belum Diinput!", "error");
             $('#cash').focus();
+        } else if (customers_id == '') {
+            swal("Error!", "Data Customers Belum Diinput!", "error");
+            $('#customers_id').focus();
         } else {
             if (confirm('Yakin Proses transaksi Ini ?')) {
                 $.ajax({
@@ -564,7 +567,7 @@ date_default_timezone_set("Asia/Bangkok");
                     success: function(result) {
                         if (result.success == true) {
                             alert('Data Behasil Disimpan');
-                            window.open('<?= site_url('Sales/cetak/') ?>' + result.sales_id, '_blank');
+                            window.open('<?= site_url('Sales/cetak/') ?>' + result.sale_id, '_blank');
                         } else {
                             swal("Error!", "Transaksi Gagal!", "error");
                         }

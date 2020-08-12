@@ -44,10 +44,10 @@ date_default_timezone_set("Asia/Bangkok");
                     <td><?= $data->item_name ?></td>
                     <td style="text-align: center;"><?= $data->size ?></td>
                     <td><?= indo_currency($data->harga_beli)  ?></td>
-                    <td style="text-align: center;"><?= $data->stock ?></td>
+                    <td style="text-align: center;"><?= $data->stock_awal ?></td>
                     <td class="text-center"><?= $data->tgl_pembelian  ?></td>
                     <td class="text-center"><?= $data->name  ?></td>
-                    <td class="text-left"><?= indo_currency($data->harga_beli * $data->stock); ?></td>
+                    <td class="text-left"><?= indo_currency($data->harga_beli * $data->stock_awal); ?></td>
                 </tr>
             <?php } ?>
         </tbody>

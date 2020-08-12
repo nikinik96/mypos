@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+date_default_timezone_set("Asia/Bangkok");
 
 class sales_m extends CI_Model
 {
@@ -120,7 +121,7 @@ class sales_m extends CI_Model
         $this->db->join('customers', 'customers.customers_id = sales.customers_id', 'LEFT');
         $this->db->join('user', 'user.user_id = sales.user_id');
         if ($id != NULL) {
-            $this->db->where('sales.sales_id', $id);
+            $this->db->where('sales.sale_id', $id);
         }
         $query = $this->db->get();
         return $query;

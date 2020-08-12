@@ -89,7 +89,7 @@ class Sales extends CI_Controller
 
 
             if ($this->db->affected_rows() > 0) {
-                $params = array("success" => true, "sales_id" => $sale_id);
+                $params = array("success" => true, "sale_id" => $sale_id);
             } else {
                 $params = array("success" => false);
             }

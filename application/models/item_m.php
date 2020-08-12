@@ -35,6 +35,7 @@ class item_m extends CI_Model
             $params['supplier_id']     = $post['supplier_id_' . $i];
             $params['size']            = $post['size_' . $i];
             $params['stock']           = $post['stock_' . $i];
+            $params['stock_awal']      = $post['stock_' . $i];
             $params['created']         = date('Y-m-d');
 
             $this->db->insert('item', $params);
