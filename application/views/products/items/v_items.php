@@ -37,9 +37,9 @@
                         <th class="text-center">Category</th>
                         <th class="text-center">Suppliers</th>
                         <th class="text-center">Size</th>
+                        <th class="text-center">Stock</th>
                         <th class="text-center">Price (Harga Beli)</th>
                         <th class="text-center text-danger">Price (Harga Jual)</th>
-                        <th class="text-center">Stock</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -52,9 +52,9 @@
                             <td><?= $data->name_categories ?></td>
                             <td class="text-center"><?= $data->name ?></td>
                             <td class="text-center"><?= $data->size ?></td>
-                            <td><?= indo_currency($data->harga_beli)  ?></td>
-                            <td><?= indo_currency($data->harga_jual)  ?></td>
                             <td class="text-center"><?= $data->stock ?></td>
+                            <td class="text-right"><?= indo_currency($data->harga_beli)  ?></td>
+                            <td class="text-right"><?= indo_currency($data->harga_jual)  ?></td>
                             <td class="text-center">
                                 <a href="<?= site_url('Items/del/' . $data->item_id); ?>" class="btn btn-danger" onclick="return confirm('Data <?= $data->item_name ?> akan dihapus secara permanen, apakah anda yakin  ?');">
                                     <i class="fa fa-trash"></i>
