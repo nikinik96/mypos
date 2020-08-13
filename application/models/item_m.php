@@ -51,6 +51,15 @@ class item_m extends CI_Model
         $this->db->query($sql);
     }
 
+    public function update_stock_awal($data)
+    {
+        $qty    = $data['qty'];
+        $id     = $data['item_id'];
+
+        $sql    = "UPDATE item SET stock_awal = stock_awal + '$qty' WHERE item_id = '$id' ";
+        $this->db->query($sql);
+    }
+
 
     public function update_stock_out($data)
     {
@@ -58,6 +67,15 @@ class item_m extends CI_Model
         $id     = $data['item_id'];
 
         $sql    = "UPDATE item SET stock = stock - '$qty' WHERE item_id = '$id' ";
+        $this->db->query($sql);
+    }
+
+    public function update_stock_awal_out_add($data)
+    {
+        $qty    = $data['qty'];
+        $id     = $data['item_id'];
+
+        $sql    = "UPDATE item SET stock_awal = stock_awal - '$qty' WHERE item_id = '$id' ";
         $this->db->query($sql);
     }
 
@@ -70,12 +88,30 @@ class item_m extends CI_Model
         $this->db->query($sql);
     }
 
+    public function update_stock_awal_out_del($data)
+    {
+        $qty    = $data['qty'];
+        $id     = $data['item_id'];
+
+        $sql    = "UPDATE item SET stock_awal = stock_awal + '$qty' WHERE item_id = '$id' ";
+        $this->db->query($sql);
+    }
+
     public function delete_stock_in($data)
     {
         $qty    = $data['qty'];
         $id     = $data['item_id'];
 
         $sql    = "UPDATE item SET stock = stock - '$qty' WHERE item_id = '$id' ";
+        $this->db->query($sql);
+    }
+
+    public function delete_stock_awal($data)
+    {
+        $qty    = $data['qty'];
+        $id     = $data['item_id'];
+
+        $sql    = "UPDATE item SET stock_awal = stock_awal - '$qty' WHERE item_id = '$id' ";
         $this->db->query($sql);
     }
 

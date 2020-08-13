@@ -39,6 +39,7 @@ class Stock_out extends CI_Controller
 
             $this->stock_out_m->add($post);
             $this->item_m->update_stock_out($post);
+            $this->item_m->update_stock_awal_out_add($post);
 
             if ($this->db->affected_rows() > 0) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil disimpan</div>');
@@ -60,6 +61,7 @@ class Stock_out extends CI_Controller
         ];
 
         $this->item_m->update_item($data);
+        $this->item_m->update_stock_awal_out_del($data);
         $this->stock_out_m->del_stock_out($stock_id);
 
         if ($this->db->affected_rows() > 0) {

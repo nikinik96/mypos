@@ -40,6 +40,7 @@ class Stock_in extends CI_Controller
 
             $this->stock_in_m->add($post);
             $this->item_m->update_stock_in($post);
+            $this->item_m->update_stock_awal($post);
 
             if ($this->db->affected_rows() > 0) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil disimpan</div>');
@@ -61,6 +62,7 @@ class Stock_in extends CI_Controller
         ];
 
         $this->item_m->delete_stock_in($data);
+        $this->item_m->delete_stock_awal($data);
         $this->stock_in_m->del_stock_in($stock_id);
 
         if ($this->db->affected_rows() > 0) {

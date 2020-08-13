@@ -81,6 +81,11 @@ class Customers extends CI_Controller
     {
         $this->customers_m->del($post);
 
+        $error = $this->db->error();
+        if ($error['code'] != 0) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger"><strong>Error!</strong> Data tidak dapat dihapus, karena suda berelasi dengan table lain</div>');
+            redirect('Customers');
+        }
         if ($this->db->affected_rows() > 0) {
             $this->session->set_flashdata('message', '<div class="alert alert-danger"><strong>Success!</strong> Data berhasil dihapus </div>');
             redirect('Customers');
