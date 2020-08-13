@@ -29,8 +29,13 @@
 			<a href="#"><b>My</b>POS</a>
 		</div>
 		<div class="login-box-body">
-			<?= $this->session->flashdata('message'); ?>
+			<br />
+			<center>
+				<img src="assets/dist/img/user.png" width="100px" />
+			</center>
+			<br>
 			<p class="login-box-msg">Sign in to start your session</p>
+			<?= $this->session->flashdata('message'); ?>
 			<form action="" method="POST">
 				<div class="form-group has-feedback <?= form_error('email') != NULL ? 'has-error' : null ?>">
 					<input type="text" name="email" class="form-control" placeholder="Email" autocomplete="off" autofocus>
