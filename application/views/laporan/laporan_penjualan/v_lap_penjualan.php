@@ -83,7 +83,7 @@
             <div class="modal-body">
                 <form method="POST" action="<?= site_url('Lap_penjualan/get_data') ?>" target="_blank">
                     <div class="form-group">
-                        <label class="control-label">Star Date</label>
+                        <label class="control-label">Start Date</label>
                         <input type="date" name="start" value="<?= date('Y-m-d'); ?>" class="form-control">
                     </div>
                     <div class="form-group">

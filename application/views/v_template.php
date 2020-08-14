@@ -129,14 +129,14 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li <?= $this->uri->segment(1) == "Categories" ? 'class="active"' : null ?>>
-                                <a href="<?= site_url('Categories') ?>">
-                                    <i class="fa fa-circle-o"></i> Categories
-                                </a>
-                            </li>
                             <li <?= $this->uri->segment(1) == "Items" ? 'class="active"' : null ?>>
                                 <a href="<?= site_url('Items') ?>">
                                     <i class="fa fa-circle-o text-success"></i> <span>Items</span>
+                                </a>
+                            </li>
+                            <li <?= $this->uri->segment(1) == "Categories" ? 'class="active"' : null ?>>
+                                <a href="<?= site_url('Categories') ?>">
+                                    <i class="fa fa-circle-o"></i> Categories
                                 </a>
                             </li>
                         </ul>
