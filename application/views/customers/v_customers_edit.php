@@ -30,10 +30,11 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <form action="" method="POST">
+                        <input type="hidden" name="customers_id" value="<?= $row->customers_id ?>">
                         <div class="form-group">
                             <label for="">Customers ID <i class="text-danger">*</i></label>
-                            <input type="text" name="customers_id" id="customers_id" class="form-control" placeholder="Customers ID" value="<?= $row->customers_id ?>" readonly="true">
-                            <?= form_error('customers_id', '<div class="text-danger">', '</div>'); ?>
+                            <input type="text" name="customers_uniq" id="customers_uniq" class="form-control" placeholder="Customers ID" value="<?= $row->customers_uniq ?>" readonly="true">
+                            <?= form_error('customers_uniq', '<div class="text-danger">', '</div>'); ?>
                         </div>
                         <div class="form-group <?= form_error('name_customers') == TRUE ? 'has-error' : null ?>">
                             <label for="name_customers">Nama Customers <i class="text-danger">*</i></label>

@@ -38,7 +38,7 @@ class Auth extends CI_Controller
 							];
 
 							$this->session->set_userdata($data);
-							redirect('Dashboard');
+							redirect('Dashboard_show');
 						} else {
 							$this->session->set_flashdata('message', '<div class="alert alert-danger"><strong>Error!</strong> Kata sandi anda salah</div>');
 							redirect('Auth');

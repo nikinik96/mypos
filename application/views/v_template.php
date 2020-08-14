@@ -216,8 +216,9 @@
             <div class="pull-right hidden-xs">
                 <b>Version</b> 2.4.0
             </div>
-            <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-            reserved.
+            <div class="text-center">
+                <strong style="text-align: center;">&copy; Copyright <?= date('Y') ?> | Built <i style="color: salmon" class="glyphicon glyphicon-heart"></i> By. <a href="https://www.instagram.com/_niky96s/" target="_blank">Niki Dwijananto</a></strong>
+            </div>
         </footer>
         <div class="control-sidebar-bg"></div>
     </div>
