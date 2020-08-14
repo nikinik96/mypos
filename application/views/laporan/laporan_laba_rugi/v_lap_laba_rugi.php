@@ -17,9 +17,9 @@
 
 <section class="content">
     <div class="box box-primary">
-        <div class="box-header">
-            <h4>Data Laporan Laba Rugi
-            </h4>
+        <div class="box-header text-center">
+            <h4><strong>Data Laporan Laba Rugi Hariini</strong></h4>
+            <hr style="width: 23%;">
         </div>
         <div class="box-body" style="padding-bottom: 50px;">
             <div class="row">
@@ -27,20 +27,118 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th class="text-center">Grand Total Pengeluaran</th>
-                                <th class="text-center">Grand Total Pemasukan</th>
+                                <th class="text-center text-success">Grand Total Pemasukan</th>
+                                <th class="text-center text-danger">Grand Total Pengeluaran</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td class="text-center">
-                                    <?php foreach ($grand_pengeluaran as $key => $data) { ?>
-                                        <?= indo_currency($data->grand_pengeluaran) ?>
+                                    <?php foreach ($grand_penjualan_daily as $key => $data) { ?>
+                                        <?= indo_currency($data->grand_penjualan_daily) ?>
                                     <?php } ?>
                                 </td>
                                 <td class="text-center">
+                                    <?php foreach ($grand_pengeluaran_daily as $key => $data) { ?>
+                                        <?= indo_currency($data->grand_pengeluaran_daily) ?>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-center">
+                                    <b>Grand Total Keseluruhan</b>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2" class="text-center">
+                                    <?php foreach ($grand_pengeluaran_daily as $key => $data_peng) { ?>
+                                        <?php foreach ($grand_penjualan_daily as $key => $data_masuk) { ?>
+                                            <?= indo_currency($data_masuk->grand_penjualan_daily - $data_peng->grand_pengeluaran_daily) ?>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="box-header text-center">
+            <h4><strong>Data Laporan Laba Rugi Hari-Hari Keseluruhan</strong></h4>
+            <hr style="width: 23%;">
+        </div>
+        <div class="box-body" style="padding-bottom: 50px;">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center text-success">Grand Total Pemasukan</th>
+                                <th class="text-center text-danger">Grand Total Pengeluaran</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    <?php foreach ($grand_penjualan_keseluruhan as $key => $data) { ?>
+                                        <?= indo_currency($data->grand_penjualan_keseluruhan) ?>
+                                    <?php } ?>
+                                </td>
+                                <td class="text-center">
+                                    <?php foreach ($grand_pengeluaran_keseluruhan as $key => $data) { ?>
+                                        <?= indo_currency($data->grand_pengeluaran_keseluruhan) ?>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-center">
+                                    <b>Grand Total Keseluruhan</b>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2" class="text-center">
+                                    <?php foreach ($grand_pengeluaran_keseluruhan as $key => $data_peng) { ?>
+                                        <?php foreach ($grand_penjualan_keseluruhan as $key => $data_masuk) { ?>
+                                            <?= indo_currency($data_masuk->grand_penjualan_keseluruhan - $data_peng->grand_pengeluaran_keseluruhan) ?>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="box-header text-center">
+            <h4><strong>Data Laporan Laba Rugi Keseluruhan</strong></h4>
+            <hr style="width: 23%;">
+        </div>
+        <div class="box-body" style="padding-bottom: 50px;">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center text-success">Grand Total Pemasukan</th>
+                                <th class="text-center text-danger">Grand Total Pengeluaran</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
                                     <?php foreach ($grand_penjualan as $key => $data) { ?>
                                         <?= indo_currency($data->grand_penjualan) ?>
+                                    <?php } ?>
+                                </td>
+                                <td class="text-center">
+                                    <?php foreach ($grand_pengeluaran as $key => $data) { ?>
+                                        <?= indo_currency($data->grand_pengeluaran) ?>
                                     <?php } ?>
                                 </td>
                             </tr>
@@ -65,45 +163,6 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="alert alert-success">
-                    <center><b>Laporan Laba Rugi</b></center>
-                </div>
-            </div>
-            <div class="modal-body">
-                <form method="POST" action="<?= site_url('Lap_pengeluaran/get_data') ?>" target="_blank">
-                    <div class="form-group">
-                        <label class="control-label">Star Date</label>
-                        <input type="date" name="start" value="<?= date('Y-m-d'); ?>" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">End Date</label>
-                        <input type="date" name="end" value="<?= date('Y-m-d', strtotime('+30 days')); ?>" class=" form-control">
-                    </div>
-                    <hr style="border: none;border-bottom: 1px solid black;width: 80%;">
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-danger " data-toggle="tooltip" title="Back" onclick="refreshPage()" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></button>
-                        <button class="btn btn-primary" type="submit" name="submit" value="proses" data-toggle="tooltip" title="Print" onclick="return valid();"><i class="glyphicon glyphicon-print"></i></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(document).ready(function() {
-        $(".cetak").click(function() {
-            $("#exampleModal").modal({
-                backdrop: 'static',
-                keyboard: false
-            });
-        });
-    });
-</script>

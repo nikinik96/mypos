@@ -36,7 +36,7 @@
                         <th class="text-center">Qty</th>
                         <th class="text-center">Tgl Jual</th>
                         <th class="text-center">Kasir</th>
-                        <th class="text-center">Grand Total</th>
+                        <th class="text-center">Total</th>
                     </tr>
                 </thead>
                 <tbody>

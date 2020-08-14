@@ -32,7 +32,7 @@ date_default_timezone_set("Asia/Bangkok");
                 <th class="text-center">Qty</th>
                 <th class="text-center">Tgl Beli</th>
                 <th class="text-center">Supplier</th>
-                <th class="text-center">Grand Total</th>
+                <th class="text-center">Total</th>
             </tr>
         </thead>
         <tbody>

@@ -42,18 +42,6 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <div class="small-box bg-green">
-                        <div class="inner">
-                            <h3><?= $customers ?></h3>
-
-                            <p>Jumlah Customers</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-users"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-red">
                         <div class="inner">
                             <h3><?= $suppliers ?></h3>
@@ -62,6 +50,18 @@
                         </div>
                         <div class="icon">
                             <i class="fa fa-truck"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3><?= $customers ?></h3>
+
+                            <p>Jumlah Customers</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-users"></i>
                         </div>
                     </div>
                 </div>
