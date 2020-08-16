@@ -36,7 +36,7 @@ class Users extends CI_Controller
 
         if ($this->db->affected_rows() > 0) {
             $this->session->set_flashdata('message', '<div class="alert alert-success"><strong>Success!</strong> Data berhasil diubah </div>');
-            redirect('Users');
+            redirect('Users/v_users_data_member');
         }
     }
 
@@ -53,7 +53,6 @@ class Users extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
 
             $data  = $this->users_m->get($id)->row();
-
             $array = [
                 'row'   => $data
             ];

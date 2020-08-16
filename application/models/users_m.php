@@ -24,8 +24,14 @@ class users_m extends CI_Model
             $params['password']     = password_hash($post['password'], PASSWORD_DEFAULT);
         }
 
-        $params['is_active']    = $post['is_active'];
-        $params['level']        = $post['level'];
+        if ($post['is_active'] != NULL) {
+            $params['is_active']    = $post['is_active'];
+        }
+
+        if ($post['level'] != NULL) {
+            $params['level']        = $post['level'];
+        }
+
 
         $this->db->where('user_id', $post['user_id']);
         $this->db->update('user', $params);
