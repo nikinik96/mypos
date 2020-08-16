@@ -18,7 +18,7 @@
 <section class="content">
     <div class="box box-primary">
         <div class="box-header text-center">
-            <h4><strong>Data Laporan Laba Rugi Hariini</strong></h4>
+            <h4><strong>Data Hariini</strong></h4>
             <hr style="width: 23%;">
         </div>
         <div class="box-body" style="padding-bottom: 50px;">
@@ -67,7 +67,7 @@
         </div>
         <!--  -->
         <div class="box-header text-center">
-            <h4><strong>Data Laporan Laba Rugi Hari-Hari Keseluruhan</strong></h4>
+            <h4><strong>Data Hari-Hari Keseluruhan</strong></h4>
             <hr style="width: 23%;">
         </div>
         <div class="box-body" style="padding-bottom: 50px;">
@@ -116,7 +116,7 @@
         </div>
         <!--  -->
         <div class="box-header text-center">
-            <h4><strong>Data Laporan Laba Rugi Keseluruhan</strong></h4>
+            <h4><strong>Data Keseluruhan</strong></h4>
             <hr style="width: 23%;">
         </div>
         <div class="box-body" style="padding-bottom: 50px;">
