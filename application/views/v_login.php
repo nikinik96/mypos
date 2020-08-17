@@ -38,7 +38,7 @@
 			<?= $this->session->flashdata('message'); ?>
 			<form action="" method="POST">
 				<div class="form-group has-feedback <?= form_error('email') != NULL ? 'has-error' : null ?>">
-					<input type="text" name="email" class="form-control" placeholder="Email" autocomplete="off" autofocus>
+					<input type="text" name="email" class="form-control" placeholder="Email Users" autocomplete="off" autofocus>
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 					<?= form_error('email', '<div class="text-danger">', '</div>'); ?>
 				</div>
