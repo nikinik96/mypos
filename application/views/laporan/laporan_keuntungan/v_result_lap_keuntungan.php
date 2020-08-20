@@ -28,7 +28,7 @@ date_default_timezone_set("Asia/Bangkok");
 				<th class="text-center">Category</th>
 				<th class="text-center">Product Name</th>
 				<th class="text-center">Size</th>
-				<th class="text-center">Harga Beli</th>
+				<th class="text-center">Harga Jual - Harga Beli</th>
 				<th class="text-center">Qty</th>
 				<th class="text-center">Tgl Jual</th>
 				<th class="text-center">Kasir</th>
@@ -39,15 +39,15 @@ date_default_timezone_set("Asia/Bangkok");
 			<?php $no = 1 ?>
 			<?php foreach ($row as $key => $data) { ?>
 				<tr>
-					<td></td>
+					<td class="text-center"><?= $no++ ?></td>
 					<td><?= $data->name_categories ?></td>
 					<td><?= $data->item_name ?></td>
-					<td><?= $data->size ?></td>
-					<td class="text-right"><?= indo_currency($data->harga_beli) ?></td>
+					<td class="text-center"><?= $data->size ?></td>
+					<td class="text-right"><?= indo_currency($data->harga_jual - $data->harga_beli)   ?></td>
 					<td class="text-center"><?= $data->qty_sale ?></td>
 					<td class="text-center"><?= indo_date($data->tgl_jual)  ?></td>
 					<td><?= $data->kasir ?></td>
-					<td class="text-right"><?= indo_currency($data->harga_beli * $data->qty) ?></td>
+					<td class="text-right"><?= indo_currency(($data->harga_jual - $data->harga_beli) * $data->qty_sale) ?></td>
 				</tr>
 			<?php } ?>
 		</tbody>
