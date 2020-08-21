@@ -167,7 +167,7 @@
 						</ul>
 					</li>
 
-					<li class="treeview <?= $this->uri->segment(1) == "Lap_report_penjualan" || $this->uri->segment(1) == "Lap_laba_rugi" || $this->uri->segment(1) == "Lap_pengeluaran" || $this->uri->segment(1) == "Lap_penjualan" ? 'active' : null ?>">
+					<li class="treeview <?= $this->uri->segment(1) == "Lap_keuntungan" || $this->uri->segment(1) == "Lap_report_penjualan" || $this->uri->segment(1) == "Lap_laba_rugi" || $this->uri->segment(1) == "Lap_pengeluaran" || $this->uri->segment(1) == "Lap_penjualan" ? 'active' : null ?>">
 						<a href="#">
 							<i class="fa fa-line-chart"></i>
 							<span>Report</span>
