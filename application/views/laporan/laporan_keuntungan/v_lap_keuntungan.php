@@ -35,6 +35,7 @@
 						<th class="text-center">Harga Jual - Harga Beli</th>
 						<th class="text-center">Qty</th>
 						<th class="text-center">Tgl Jual</th>
+						<th class="text-center">Customers</th>
 						<th class="text-center">Kasir</th>
 						<th class="text-center">Total</th>
 					</tr>
@@ -50,6 +51,7 @@
 							<td class="text-right"><?= indo_currency($data->harga_jual - $data->harga_beli)   ?></td>
 							<td class="text-center"><?= $data->qty_sale ?></td>
 							<td class="text-center"><?= indo_date($data->tgl_jual)  ?></td>
+							<td><?= $data->sales_customers == 1 ? 'Umum' : $data->sales_customers ?></td>
 							<td><?= $data->kasir ?></td>
 							<td class="text-right"><?= indo_currency(($data->harga_jual - $data->harga_beli) * $data->qty_sale) ?></td>
 						</tr>
@@ -57,7 +59,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="8" class="text-right">
+						<td colspan="9" class="text-right">
 							<b>Grand Total</b>
 						</td>
 						<td colspan="1" class="text-right">

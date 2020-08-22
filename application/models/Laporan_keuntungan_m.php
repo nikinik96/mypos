@@ -5,7 +5,7 @@ class Laporan_keuntungan_m extends CI_Model
 {
 	public function show_all_data($post = NULL)
 	{
-		$this->db->select('*, sales_detail.qty as qty_sale, sales.date as tgl_jual, user.name as kasir');
+		$this->db->select('*, sales_detail.qty as qty_sale, sales.date as tgl_jual, user.name as kasir, sales.customers_id as sales_customers');
 		$this->db->from('sales');
 		$this->db->join('sales_detail', 'sales_detail.sale_id = sales.sale_id', 'LEFT');
 		$this->db->join('item', 'item.item_id = sales_detail.item_id', 'LEFT');
