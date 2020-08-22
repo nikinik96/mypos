@@ -167,7 +167,7 @@
 						</ul>
 					</li>
 
-					<li class="treeview <?= $this->uri->segment(1) == "Lap_keuntungan" || $this->uri->segment(1) == "Lap_report_penjualan" || $this->uri->segment(1) == "Lap_laba_rugi" || $this->uri->segment(1) == "Lap_pengeluaran" || $this->uri->segment(1) == "Lap_penjualan" ? 'active' : null ?>">
+					<li class="treeview <?= $this->uri->segment(1) == "Lap_belum_lunas" || $this->uri->segment(1) == "Lap_keuntungan" || $this->uri->segment(1) == "Lap_report_penjualan" || $this->uri->segment(1) == "Lap_laba_rugi" || $this->uri->segment(1) == "Lap_pengeluaran" || $this->uri->segment(1) == "Lap_penjualan" ? 'active' : null ?>">
 						<a href="#">
 							<i class="fa fa-line-chart"></i>
 							<span>Report</span>
@@ -184,6 +184,11 @@
 							<li <?= $this->uri->segment(1) == "Lap_pengeluaran" ? 'class="active"' : null ?>>
 								<a href="<?= site_url('Lap_pengeluaran') ?>">
 									<i class="fa fa-circle-o text-red"></i> <span>Lap Pengeluaran</span>
+								</a>
+							</li>
+							<li <?= $this->uri->segment(1) == "Lap_belum_lunas" ? 'class="active"' : null ?>>
+								<a href="<?= site_url('Lap_belum_lunas') ?>">
+									<i class="fa fa-circle-o text-dark"></i> <span>Lap Belum Lunas</span>
 								</a>
 							</li>
 							<li <?= $this->uri->segment(1) == "Lap_keuntungan" ? 'class="active"' : null ?>>

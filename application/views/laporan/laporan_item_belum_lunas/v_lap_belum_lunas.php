@@ -1,5 +1,5 @@
 <section class="content-header">
-	<h1>Data Report Laporan Penjualan <small>Report Laporan Penjualan</small></h1>
+	<h1>Lap Penjualan Belum Lunas <small>Lap Penjualan Belum Lunas</small></h1>
 	<ol class="breadcrumb">
 		<li>
 			<a href="<?= site_url('Dashboard') ?>">
@@ -10,16 +10,17 @@
 			Laporan
 		</li>
 		<li class="active">
-			Report Laporan Penjualan
+			Lap Penjualan Belum Lunas
 		</li>
 	</ol>
 </section>
 
 <section class="content">
+	<?= $this->session->flashdata('message'); ?>
 	<div class="box box-warning">
 		<div class="box-header">
 			<h4>
-				Data Report Laporan Penjualan
+				Lap Penjualan Belum Lunas
 			</h4>
 		</div>
 		<div class="box-body table-responsive">
@@ -58,8 +59,8 @@
 							<?php } ?>
 							<td class="text-center"><?= $data->user_name ?></td>
 							<td class="text-center">
-								<a href="<?= site_url('Lap_report_penjualan/result/' . $data->sale_id) ?>" class="btn btn-success">
-									<i class="fa fa-eye"></i>
+								<a href="<?= site_url('Lap_belum_lunas/result/' . $data->sale_id) ?>" class="btn btn-success">
+									<i class="fa fa-edit"></i>
 								</a>
 							</td>
 						</tr>

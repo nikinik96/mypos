@@ -15,6 +15,7 @@ class Laporan_keuntungan_m extends CI_Model
 			$this->db->where('sales.date >=', $post['start']);
 			$this->db->where('sales.date <=', $post['end']);
 		}
+		$this->db->where('sales.note =', 1);
 		$post = $this->db->get();
 		return $post;
 	}
@@ -29,6 +30,7 @@ class Laporan_keuntungan_m extends CI_Model
 			$this->db->where('sales.date >=', $post['start']);
 			$this->db->where('sales.date <=', $post['end']);
 		}
+		$this->db->where('sales.note =', 1);
 		$post = $this->db->get();
 		return $post;
 	}

@@ -41,6 +41,7 @@ class dashboard_m extends CI_Model
 		$this->db->join('sales_detail', 'sales_detail.sale_id = sales.sale_id', 'LEFT');
 		$this->db->join('item', 'item.item_id = sales_detail.item_id', 'LEFT');
 		$this->db->where('sales.date =', $date);
+		$this->db->where('sales.note =', 1);
 
 		$post = $this->db->get();
 		return $post;

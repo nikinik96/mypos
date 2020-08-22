@@ -11,7 +11,7 @@ class Laporan_laba_rugi_m extends CI_Model
 		$this->db->select('SUM(sales.final_price) as grand_penjualan_daily');
 		$this->db->from('sales');
 		$this->db->where('sales.date', $date);
-
+		$this->db->where('sales.note =', 1);
 
 		$post = $this->db->get();
 		return $post;
@@ -27,6 +27,7 @@ class Laporan_laba_rugi_m extends CI_Model
 		$this->db->join('item', 'item.item_id = sales_detail.item_id', 'LEFT');
 
 		$this->db->where('sales.date', $date);
+		$this->db->where('sales.note =', 1);
 
 		$post = $this->db->get();
 		return $post;
@@ -38,6 +39,7 @@ class Laporan_laba_rugi_m extends CI_Model
 	{
 		$this->db->select('SUM(sales.final_price) as grand_penjualan_keseluruhan');
 		$this->db->from('sales');
+		$this->db->where('sales.note =', 1);
 
 		$post = $this->db->get();
 		return $post;
@@ -49,6 +51,7 @@ class Laporan_laba_rugi_m extends CI_Model
 		$this->db->from('sales');
 		$this->db->join('sales_detail', 'sales_detail.sale_id = sales.sale_id', 'LEFT');
 		$this->db->join('item', 'item.item_id = sales_detail.item_id', 'LEFT');
+		$this->db->where('sales.note =', 1);
 
 		$post = $this->db->get();
 		return $post;
@@ -60,6 +63,8 @@ class Laporan_laba_rugi_m extends CI_Model
 	{
 		$this->db->select('SUM(sales.final_price) as grand_penjualan');
 		$this->db->from('sales');
+		$this->db->where('sales.note =', 1);
+
 		$post = $this->db->get();
 		return $post;
 	}
@@ -70,6 +75,9 @@ class Laporan_laba_rugi_m extends CI_Model
 		$this->db->from('item');
 		$this->db->join('categories', 'categories.categories_id = item.categories_id', 'LEFT');
 		$this->db->join('supplier', 'supplier.supplier_id = item.supplier_id', 'LEFT');
+
+		// $this->db->where('sales.note =', 1);
+
 		$post = $this->db->get();
 		return $post;
 	}

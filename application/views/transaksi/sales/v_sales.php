@@ -220,11 +220,15 @@ date_default_timezone_set("Asia/Bangkok");
 					<table style="width: 100%;">
 						<tr>
 							<td style="vertical-align: top; width: 29%">
-								<label for="note">Note</label>
+								<label for="note">Status Pembayaran</label>
 							</td>
 							<td>
 								<div class="form-group">
-									<textarea name="" id="note" cols="30" rows="3" class="form-control"></textarea>
+									<select name="note" id="note" class="form-control select2">
+										<option value="">-- Pilih --</option>
+										<option value="1">Lunas</option>
+										<option value="0">Belum Lunas</option>
+									</select>
 								</div>
 							</td>
 						</tr>
@@ -541,6 +545,9 @@ date_default_timezone_set("Asia/Bangkok");
 			$('#cash').focus();
 		} else if (customers_id == '') {
 			swal("Error!", "Data Customers Belum Diinput!", "error");
+			$('#customers_id').focus();
+		} else if (note == '') {
+			swal("Error!", "Data Status Pembayaran Belum Diinput!", "error");
 			$('#customers_id').focus();
 		} else {
 			if (confirm('Yakin Proses transaksi Ini ?')) {
