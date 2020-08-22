@@ -18,7 +18,7 @@
 		<div class="box-body">
 			<div class="row">
 				<div class="col-lg-3 col-xs-6">
-					<div class="small-box bg-aqua">
+					<div class="small-box bg-green">
 						<div class="inner">
 							<h3><?= $penjualan ?></h3>
 
@@ -54,7 +54,7 @@
 					</div>
 				</div>
 				<div class="col-lg-3 col-xs-6">
-					<div class="small-box bg-green">
+					<div class="small-box bg-blue">
 						<div class="inner">
 							<h3><?= $customers ?></h3>
 
@@ -62,6 +62,24 @@
 						</div>
 						<div class="icon">
 							<i class="fa fa-users"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="small-box bg-green">
+						<div class="inner">
+							<h3 class="text-center">
+								<?php foreach ($grand_total as $row => $data) { ?>
+									<?= indo_currency($data->grand_total)  ?>
+								<?php } ?>
+							</h3>
+
+							<p class="text-center">Pendapatan Hariini</p>
+						</div>
+						<div class="icon">
+							<i class="fa fa-dollar"></i>
 						</div>
 					</div>
 				</div>
