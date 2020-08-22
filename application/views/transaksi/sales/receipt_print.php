@@ -77,7 +77,7 @@
 					</td>
 					<td style="text-align: center;">:</td>
 					<td style="text-align: right;">
-						<?= $sales->customers_id == null ? "Umum" : $sales->customers_name ?>
+						<?= $sales->customers_sales ?>
 					</td>
 				</tr>
 			</table>
