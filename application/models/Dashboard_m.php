@@ -20,7 +20,7 @@ class dashboard_m extends CI_Model
 
 	public function get_customers()
 	{
-		$query = $this->db->query("SELECT * FROM customers");
+		$query = $this->db->query("SELECT * FROM categories");
 		$count = $query->num_rows();
 		return $count;
 	}
