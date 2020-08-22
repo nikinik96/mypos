@@ -32,7 +32,7 @@
 						<th class="text-center">Category</th>
 						<th class="text-center">Product Name</th>
 						<th class="text-center">Size</th>
-						<th class="text-center">Harga Jual - Harga Beli</th>
+						<th class="text-center">HJ - HB</th>
 						<th class="text-center">Qty</th>
 						<th class="text-center">Tgl Jual</th>
 						<th class="text-center">Customers</th>
