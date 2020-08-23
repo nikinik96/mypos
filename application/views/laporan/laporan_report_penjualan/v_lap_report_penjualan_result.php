@@ -46,6 +46,13 @@
 						<td><b>Customers Name</b></td>
 						<td> : <?= $data->sales_customers == 1 ? 'Umum' : $data->sales_customers ?></td>
 					</tr>
+					<tr>
+						<td>
+							<a href="<?= site_url('Sales/cetak/' . $data->sale_id) ?>" class="btn btn-primary" target="_blank">
+								<i class="fa fa-print"></i>
+							</a>
+						</td>
+					</tr>
 				<?php } ?>
 			</table>
 			<br>
