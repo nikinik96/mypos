@@ -52,13 +52,13 @@
 					</ul>
 					<li class="dropdown user user-menu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<img src="<?= base_url('assets') ?>/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+							<img src="<?= base_url('assets') ?>/dist/img/user.jpeg" class="user-image" alt="User Image">
 							<span class="hidden-xs"><?= ucfirst($this->fungsi->user_login()->level) == 1 ? 'Admin' : 'Member' ?></span>
 						</a>
 						<ul class="dropdown-menu">
 							<!-- User image -->
 							<li class="user-header">
-								<img src="<?= base_url('assets') ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+								<img src="<?= base_url('assets') ?>/dist/img/user.jpeg" class="img-circle" alt="User Image">
 								<p>
 									<?= ucfirst($this->fungsi->user_login()->name) ?>
 									<small> <?= ucfirst($this->fungsi->user_login()->alamat) ?> </small>
@@ -83,7 +83,7 @@
 			<section class="sidebar">
 				<div class="user-panel">
 					<div class="pull-left image">
-						<img src="<?= site_url('assets') ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+						<img src="<?= site_url('assets') ?>/dist/img/user.jpeg" class="img-circle" alt="User Image">
 					</div>
 					<div class="pull-left info">
 						<p>
