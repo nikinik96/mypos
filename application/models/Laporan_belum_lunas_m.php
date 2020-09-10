@@ -40,8 +40,10 @@ class Laporan_belum_lunas_m extends CI_Model
 
 	public function grand_total_penjualan($id = NULL)
 	{
-		$this->db->select('SUM(sales.final_price) as grand_total');
+		$this->db->select('SUM(item.harga_jual) as grand_total');
 		$this->db->from('sales');
+		$this->db->join('sales_detail', 'sales_detail.sale_id = sales.sale_id', 'LEFT');
+		$this->db->join('item', 'item.item_id = sales_detail.item_id', 'LEFT');
 		if ($id != NULL) {
 			$this->db->where('sales.sale_id', $id);
 		}
