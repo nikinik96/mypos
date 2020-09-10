@@ -78,7 +78,7 @@
 							<td class="text-center"><?= $data->size ?></td>
 							<td class="text-right"><?= indo_currency($data->harga_jual) ?></td>
 							<td class="text-center"><?= $data->qty_sales ?></td>
-							<td class="text-right"><?= indo_currency($data->total_sales) ?></td>
+							<td class="text-right"><?= indo_currency($data->harga_jual * $data->qty_sales) ?></td>
 						</tr>
 					<?php } ?>
 				</tbody>
