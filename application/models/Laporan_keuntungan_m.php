@@ -22,7 +22,7 @@ class Laporan_keuntungan_m extends CI_Model
 
 	public function grand_total_keuntungan($post = NULL)
 	{
-		$this->db->select('SUM((item.harga_jual - item.harga_beli) * sales_detail.qty) as grand_total');
+		$this->db->select('SUM((item.harga_jual - item.harga_beli) * sales_detail.qty) as grand_total, SUM(sales.discount) as discount_all');
 		$this->db->from('sales');
 		$this->db->join('sales_detail', 'sales_detail.sale_id = sales.sale_id', 'LEFT');
 		$this->db->join('item', 'item.item_id = sales_detail.item_id', 'LEFT');
