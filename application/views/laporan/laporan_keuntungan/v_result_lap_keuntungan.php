@@ -21,7 +21,7 @@ date_default_timezone_set("Asia/Bangkok");
 	<br>
 	Print On : <?= date('Y-m-d H:i:s'); ?>
 
-	<table class=" table table-striped table-bordered" style="padding-top: 10px;">
+	<table class=" table table-striped table-bordered table-responsive" style="padding-top: 10px;">
 		<thead>
 			<tr>
 				<th class="text-center">#</th>
@@ -30,6 +30,7 @@ date_default_timezone_set("Asia/Bangkok");
 				<th class="text-center">Size</th>
 				<th class="text-center">HJ - HB</th>
 				<th class="text-center">Qty</th>
+				<th class="text-center">Discount</th>
 				<th class="text-center">Tgl Jual</th>
 				<th class="text-center">Customers</th>
 				<th class="text-center">Kasir</th>
@@ -44,23 +45,24 @@ date_default_timezone_set("Asia/Bangkok");
 					<td><?= $data->name_categories ?></td>
 					<td><?= $data->item_name ?></td>
 					<td class="text-center"><?= $data->size ?></td>
-					<td class="text-right"><?= indo_currency($data->harga_jual - $data->harga_beli)   ?></td>
+					<td class="text-right"><?= indo_currency($data->harga_jual - $data->harga_beli) ?></td>
 					<td class="text-center"><?= $data->qty_sale ?></td>
+					<td class="text-center"><?= indo_currency($data->discount) == '' ? '-' : indo_currency($data->discount) ?></td>
 					<td class="text-center"><?= indo_date($data->tgl_jual)  ?></td>
 					<td><?= $data->sales_customers == 1 ? 'Umum' : $data->sales_customers ?></td>
 					<td><?= $data->kasir ?></td>
-					<td class="text-right"><?= indo_currency(($data->harga_jual - $data->harga_beli) * $data->qty_sale) ?></td>
+					<td class="text-right"><?= indo_currency(($data->harga_jual - $data->harga_beli) * $data->qty_sale - $data->discount) ?></td>
 				</tr>
 			<?php } ?>
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="9" class="text-right">
+				<td colspan="10" class="text-right">
 					<b>Grand Total</b>
 				</td>
 				<td colspan="1" class="text-right">
 					<?php foreach ($grand_total as $key => $data) { ?>
-						<?= indo_currency($data->grand_total) ?>
+						<?= indo_currency($data->grand_total - $data->discount_all) ?>
 					<?php } ?>
 				</td>
 			</tr>
