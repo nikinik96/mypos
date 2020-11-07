@@ -29,11 +29,14 @@
 				<thead>
 					<tr>
 						<th class="text-center">#</th>
+						<th class="text-center">Invoice</th>
+						<th class="text-center">Discount</th>
 						<th class="text-center">Category</th>
 						<th class="text-center">Product Name</th>
 						<th class="text-center">Size</th>
 						<th class="text-center">Harga Jual</th>
 						<th class="text-center">Qty</th>
+						<th class="text-center">Discount Per Items</th>
 						<th class="text-center">Tgl Jual</th>
 						<th class="text-center">Customers</th>
 						<th class="text-center">Kasir</th>
@@ -41,25 +44,28 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php $no = 1; ?>
+					<?php $no = 1 ?>
 					<?php foreach ($result as $key => $data) { ?>
 						<tr>
 							<td class="text-center"><?= $no++; ?></td>
+							<td class="text-center"><?= $data->invoice ?></td>
+							<td class="text-left"><?= indo_currency($data->discount) ?></td>
 							<td><?= $data->name_categories ?></td>
 							<td><?= $data->item_name ?></td>
 							<td class="text-center"><?= $data->size ?></td>
-							<td class="text-right"><?= indo_currency($data->harga_jual) ?></td>
+							<td class="text-left"><?= indo_currency($data->harga_jual) ?></td>
 							<td class="text-center"><?= $data->qty_sales ?></td>
+							<td class="text-left"><?= indo_currency($data->discount_item) ?></td>
 							<td class="text-center"><?= $data->date_sale ?></td>
 							<td><?= $data->sales_customers == 1 ? 'Umum' : $data->sales_customers ?></td>
 							<td><?= $data->user_name ?></td>
-							<td class="text-right"><?= indo_currency($data->total_sales) ?></td>
+							<td class="text-right"><?= indo_currency($data->final_price) ?></td>
 						</tr>
 					<?php } ?>
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="9" class="text-right">
+						<td colspan="12" class="text-right">
 							<b>Grand Total</b>
 						</td>
 						<td colspan="1" class="text-right">

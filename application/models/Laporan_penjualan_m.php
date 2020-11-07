@@ -16,6 +16,19 @@ class Laporan_penjualan_m extends CI_Model
 			$this->db->where('sales.date <=', $post['end']);
 		}
 		$this->db->where('sales.note =', 1);
+		$this->db->group_by('sales.invoice');
+
+		$post = $this->db->get();
+		return $post;
+	}
+
+
+	public function get_invoice($post = NULL)
+	{
+		$this->db->select('*');
+		$this->db->from('sales');
+		$this->db->join('sales_detail', 'sales_detail.sale_id = sales.sale_id', 'LEFT');
+		$this->db->group_by('sales.invoice');
 
 		$post = $this->db->get();
 		return $post;

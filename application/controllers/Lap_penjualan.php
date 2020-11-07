@@ -12,11 +12,13 @@ class Lap_penjualan extends CI_Controller
     public function index()
     {
         $show_result = $this->Laporan_penjualan_m->get_result()->result();
+        $row_result = $this->Laporan_penjualan_m->get_invoice()->row();
         $grand_total = $this->Laporan_penjualan_m->grand_total_penjualan()->result();
 
         $data = [
             'result'        => $show_result,
-            'grand_total'   => $grand_total
+            'grand_total'   => $grand_total,
+            'row_result'    => $row_result,
         ];
 
         $this->template->load('v_template', 'laporan/laporan_penjualan/v_lap_penjualan', $data);
